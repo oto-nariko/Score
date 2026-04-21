@@ -5,9 +5,5 @@
 <head>
 <meta charset="UTF-8">
 <h1>得点管理システム</h1>
-ko
 </head>
-<body>
-
-</body>
 </html>
