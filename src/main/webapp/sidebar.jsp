@@ -6,14 +6,14 @@
         	<nav>
 	        	<ul>
 		        	<li ><a href="../../menu.jsp">メニュー</a></li>
-		        	<li ><a href="../../student_list.jsp">学生管理</a></li>
+		        	<li ><a href="StudentListAction">学生管理</a></li>
 		        	<li >成績管理</li>
 		        	<ul>
-		        		<li ><a href="../../test_regist.jsp">成績登録</a></li>
-						<li ><a href="../../test_list.jsp">成績参照</a></li>
+		        		<li ><a href="TestRegistAction">成績登録</a></li>
+						<li ><a href="TestListAction">成績参照</a></li>
 		        	</ul>
-					<li ><a href="subject_list.jsp">科目管理</a></li>
+					<li ><a href="SubjectListAction">科目管理</a></li>
 				</ul>	
 	        </nav>
         </div>
-      </div>
+</div>
