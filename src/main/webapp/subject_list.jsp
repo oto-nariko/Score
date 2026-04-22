@@ -6,7 +6,7 @@
 <body>
 <%@include file="../../sidebar.jsp" %>
 <h2>科目管理</h2>
-<a href="../../subject_create.jsp">科目登録</a>
+<a href="SubjectCreateAction">新規登録</a>
 <table>
 <c:forEach var="subject" items="${subject}">
 	<tr>
@@ -16,8 +16,8 @@
 	<tr>
 	<td>${subject.id}</td>
 	<td>${subject.name}</td>
-	<td><a href="subject_update.jsp">科目変更</a></td>
-	<td><a href="subject_delete.jsp">科目削除</a></td>
+	<td><a href="SubjectUpdateAction">変更</a></td>
+	<td><a href="SubjectDeleteAction">削除</a></td>
 	</tr>
 </c:forEach>
 </table>
