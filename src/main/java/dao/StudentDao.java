@@ -3,6 +3,9 @@ package dao;
 import java.sql.ResultSet;
 import java.util.List;
 
+import bean.School;
+import bean.Student;
+
 public class StudentDao extends Dao {
 	
 	private String baseSql;
