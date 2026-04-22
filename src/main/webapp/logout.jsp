@@ -4,6 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<h1>得点管理システム</h1>
+<title>ログアウト</title>
 </head>
+<body>
+	<h2>ログアウト</h2>
+	
+	<p>ログアウトしました</p>
+	
+	<a href='login.jsp'>ログイン</a>
+</body>
 </html>
