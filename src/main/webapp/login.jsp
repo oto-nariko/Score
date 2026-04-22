@@ -33,7 +33,7 @@
 		<br>
 
 		<div>
-			<input type='submit' name='login' value='ログイン'>
+			<input type='button' name='login' value='ログイン'>
 		</div>
 
 	</form>
