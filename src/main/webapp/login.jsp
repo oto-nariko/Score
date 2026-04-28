@@ -10,7 +10,9 @@
 	<h2>ログイン</h2>
 
 	<form action='LoginExecute.action' method='post'>
-
+		<div>
+		    ${errors}
+		</div>
 		<div>
 			<label for='id'>ログインID</label>
 			<input type='text' id='id' name='id' value='${id}' placeholder='半角でご入力ください'>
