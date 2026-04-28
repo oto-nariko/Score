@@ -7,5 +7,5 @@
 
 <!-- ログイン後 -->
 <p><span>${teacher.name}様</span></p>
-<p><a href="../../logout.jsp">ログアウト</a></p>
+<p><a href="main/Logout.action">ログアウト</a></p>
 </head>

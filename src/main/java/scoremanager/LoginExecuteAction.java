@@ -8,6 +8,12 @@ import bean.Teacher;
 import dao.TeacherDao;
 import tool.Action;
 
+/*
+ * データベースを取得、照合し、画面を遷移させる
+ * 現在はログイン後headerに飛ぶようになっている
+ * menu完成後書き換える
+ * */
+
 public class LoginExecuteAction extends Action {
 
 	@Override

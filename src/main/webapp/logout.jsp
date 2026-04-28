@@ -11,6 +11,6 @@
 	
 	<p>ログアウトしました</p>
 	
-	<a href='login.jsp'>ログイン</a>
+	<a href='../Login.action'>ログイン</a>
 </body>
 </html>
