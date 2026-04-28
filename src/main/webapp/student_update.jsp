@@ -2,13 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>学生情報変更</title>
-</head>
-<body>
-
 <%@include file="../../header.jsp" %>
+<body>
 
 <%@include file="../../sidebar.jsp" %>
 
@@ -46,7 +41,6 @@
 
 <<a href="student_list.jsp">戻る</a>
 
-<%@include file="../../footer.jsp" %>
-
 </body>
+<%@include file="../../footer.jsp" %>
 </html>
