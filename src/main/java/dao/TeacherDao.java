@@ -27,8 +27,8 @@ public class TeacherDao extends Dao {
 			teacher = new Teacher();
 			teacher.setId(rs.getString("id"));
 			teacher.setPassword(rs.getString("password"));
-			teacher.setName(id);
-			teacher.setSchool(id);
+			teacher.setName(rs.getString("name"));
+			teacher.setSchool(rs.getString("school_cd"));
 		}
 		
 		st.close();
@@ -60,7 +60,7 @@ public class TeacherDao extends Dao {
 			teacher.setId(rs.getString("id"));
 			teacher.setPassword(rs.getString("password"));
 			teacher.setName(rs.getString("name"));
-			teacher.setSchool(rs.getString("school"));
+			teacher.setSchool(rs.getString("school_cd"));
 		}
 		
 		st.close();
