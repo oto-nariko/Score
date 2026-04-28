@@ -3,8 +3,7 @@ package dao;
 import java.sql.Connection;
 
 import javax.naming.InitialContext;
-
-import org.apache.tomcat.jdbc.pool.DataSource;
+import javax.sql.DataSource;
 
 public class Dao {
 	static DataSource ds;

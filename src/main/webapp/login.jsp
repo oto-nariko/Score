@@ -10,7 +10,7 @@
 <body>
 	<h2>ログイン</h2>
 
-	<form action='login' method='post'>
+	<form action='LoginExecute.action' method='post'>
 
 		<div>
 			<label for='id'>ログインID</label>
@@ -34,7 +34,7 @@
 		<br>
 
 		<div>
-			<input type='button' name='login' value='ログイン'>
+			<input type='submit' value='ログイン'>
 		</div>
 
 	</form>
