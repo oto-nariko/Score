@@ -7,6 +7,10 @@
 <title>メニュー</title>
 </head>
 <body>
+
+<%@include file="../../header.jsp" %>
+
+<%@include file="../../sidebar.jsp" %>
 	<h2>メニュー</h2>
 	<div>
 	
@@ -33,6 +37,8 @@
 		</p>
 		
 	</div>
+	
+	<%@include file="../../footer.jsp" %>
 		
 </body>
 </html>
