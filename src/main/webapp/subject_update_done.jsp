@@ -7,13 +7,8 @@
 <%@include file="../../sidebar.jsp" %>
 <main>
 <h2>科目情報変更</h2>
-		<label>科目コード</label><br>
-		<input type="text" name="cd" value="${cd}"><br>
-		<label>科目名</label><br>
-		<input type="text" name="name" value="${name}"><br>
-		<input type="submit" value="変更">
-	</form>	
-	<a href="SubjectListAction">戻る</a>
+<p>変更が完了しました</p>
+<a href=SubjectListAction>科目一覧</a>
 </main>
 </body>
 <%@include file="../../footer.jsp" %>

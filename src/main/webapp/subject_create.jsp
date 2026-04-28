@@ -14,7 +14,7 @@
 		<input type="text" name="name" id="${name}"><br>
 		<input type="submit" value="登録">
 	</form>	
-	<a href="SubjectListAction"></a>
+	<a href="SubjectListAction">戻る</a>
 </main>
 </body>
 <%@include file="../../footer.jsp" %>
