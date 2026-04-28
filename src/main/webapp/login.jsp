@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ログイン</title>
+	<link rel="stylesheet" href="login.css" />
 </head>
 <body>
 	<h2>ログイン</h2>
