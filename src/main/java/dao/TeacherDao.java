@@ -13,6 +13,7 @@ public class TeacherDao extends Dao {
 		 * IDと一致するユーザーの情報を返す
 		 * 無い場合はnull
 		 */
+		
 		Teacher teacher = null;
 		
 		Connection con = getConnection();
@@ -66,6 +67,7 @@ public class TeacherDao extends Dao {
 		st.close();
 		con.close();
 		
+		//ユーザーデータを返却
 		return teacher;
 	}
 	
