@@ -2,13 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>学生管理</title>
-</head>
-<body>
-
 <%@include file="../../header.jsp" %>
+<body>
 
 <%@include file="../../sidebar.jsp" %>
 
@@ -47,7 +42,6 @@
 	</tr>
 </table>
 
-<%@include file="../../footer.jsp" %>
-
 </body>
+<%@include file="../../footer.jsp" %>
 </html>
