@@ -44,7 +44,7 @@
 
 </form>
 
-<a href="">戻る</a>
+<a href="student_list.jsp">戻る</a>
 
 <%@include file="../../footer.jsp" %>
 
