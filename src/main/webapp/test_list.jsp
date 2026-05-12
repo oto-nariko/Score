@@ -1,0 +1,91 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<%@include file="../../header.jsp" %>
+<body>
+<%@include file="../../sidebar.jsp" %>
+<main>
+<h2>成績参照</h2>
+<form action="TestRegistAction" method="post">
+	<label>入学年度</label>
+	<select name="f1">
+	<option value="">-----------</option>
+	<c:forEach var="year" items="${ent_year_set}">
+		<option value="${year}"<c:if test="${year == f1}">selected</c:if>>${year}</option>
+	</c:forEach>
+	</select>
+	
+	<label>クラス</label>
+        <select name="f2">
+            <option value="">--------</option>
+            <c:forEach var="v" items="${class_num_set}">
+                <option value="${v}" <c:if test="${v == f2}">selected</c:if>>${v}</option>
+            </c:forEach>
+        </select>
+        
+    <label>科目</label>
+        <select name="f3">
+            <option value="">--------</option>
+            <c:forEach var="subject" items="${subjects}">
+                <option value="${subject.cd}" <c:if test="${subject.cd == f3}">selected</c:if>>${subject.name}</option>
+            </c:forEach>//上のsubject.cdは変わるかも
+        </select>
+       
+    <label>回数</label>
+        <select name="f4">
+            <option value="">--------</option>
+            <c:forEach var="num" begin="1" end="10">
+                <option value="${num}" <c:if test="${num == f4}">selected</c:if>>${num}</option>
+            </c:forEach>
+        </select>    
+        
+        <input type="submit" value="検索" class="btn-search">    
+</form>
+
+
+<hr>
+
+<%-- 検索結果エリア (studentsリストが存在する場合のみ表示) --%>
+    <c:if test="${not empty students}">
+    <div><label>科目：${subject_name}（${f4}回目）</label></div>
+    <form>
+    <table border="1">
+                <thead>
+                    <tr>
+                        <th>入学年度</th>
+                        <th>クラス</th>
+                        <th>学生番号</th>
+                        <th>氏名</th>
+                        <th>点数</th>     
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="student" items="${students}">
+                        <tr>
+                            <%-- Student Beanのプロパティ名 (no, name, entYear, classNum) に合わせて表示 --%>
+                            <td>${student.entYear}</td>
+                            <td>${student.classNum}</td>
+                            <td>${student.no}</td>
+                            <td>${student.name}</td>
+                            <td>
+                            ${student.point}
+                                </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            
+            <input type="hidden" name="count" value="${f4}">
+            <input type="hidden" name="subject" value="${f3}">
+            
+            <input type="submit" value="登録して終了" class="btn-submit">
+            
+    </form>
+   </c:if> 
+
+</main>
+</body>
+<%@include file="../../footer.jsp" %>
+</html>
