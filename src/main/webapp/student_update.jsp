@@ -8,39 +8,27 @@
 <%@include file="../../sidebar.jsp" %>
 
 <h2>学生情報変更</h2>
+	<label>入学年度</label>
+	<input type="text" name="ent_year" value="${ent_year }" readonly ><br>
 
-<form action="" method="post">
+	<label>学生番号</label>
+	<input type="text" name="no" value="${no }" readonly>
 
-<label>入学年度</label>
-<input type="text" name="ent_year" value="${ent_year }" readonly >
+	<label>氏名</label>
+	<input type="text" name="name" value="${name }"><br>
 
-<br>
+	<label>クラス</label>
+	<select name="class_num">
+	<option value="">--------</option>
+	</section><br>
 
-<label>学生番号</label>
-<input type="text" name="no" value="${no }" readonly>
+	<label>在学中</label>
+	<input type="chexbox" name="is_attend"><br>
 
-<label>氏名</label>
-<input type="text" name="name" value="${name }">
-
-<br>
-
-<label>クラス</label>
-<select name="class_num">
-<option value="">--------</option>
-</section>
-
-<br>
-
-<label>在学中</label>
-<input type="chexbox" name="is_attend">
-<br>
-
-<button type="submit" name="login">変更</button>
+	<button type="submit" name="login">変更</button>
 
 </form>
-
-<<a href="student_list.jsp">戻る</a>
-
+<a href="student_list.jsp">戻る</a>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
