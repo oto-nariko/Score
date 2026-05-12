@@ -4,7 +4,6 @@
 <html>
 <%@include file="../../header.jsp" %>
 <body>
-
 <%@include file="../../sidebar.jsp" %>
 
 <h2>学生情報登録</h2>
@@ -25,7 +24,6 @@
 	</select><br>
 
 	<button type="submit" name="end">登録して終了</button>
-</form>
 
 <a href="student_list.jsp">戻る</a>
 </body>
