@@ -5,20 +5,25 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
-<div>氏名：</div>
+<div>科目</div>
 <table>
 	<tr>
-		<th>科目名</th>
-		<th>科目コード</th>
-		<th>回数</th>
-		<th>点数</th>
+		<th>入学年度</th>
+		<th>クラス</th>
+		<th>学籍番号</th>
+		<th>氏名</th>
+		<th>1回</th>
+		<th>2回</th>
 	</tr>
 	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
 	</tr>
+	
 </table>
 </body>
 <%@include file="../../footer.jsp" %>

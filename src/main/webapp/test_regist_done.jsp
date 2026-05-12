@@ -5,21 +5,13 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
-<div>氏名：</div>
-<table>
-	<tr>
-		<th>科目名</th>
-		<th>科目コード</th>
-		<th>回数</th>
-		<th>点数</th>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
+<main>
+	<h2>成績管理</h2>
+	<p>登録が完了しました</p>
+	<a href="TestRegistAction">戻る</a>
+	<a href="TestListAction">成績参照</a>
+
+</main>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
