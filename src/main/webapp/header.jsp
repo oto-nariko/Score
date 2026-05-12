@@ -6,6 +6,6 @@
 <h1>得点管理システム</h1>
 
 <!-- ログイン後 -->
-<p><span>${teacher.name}様</span></p>
+<p><span>${user.name}様</span></p>
 <p><a href="main/Logout.action">ログアウト</a></p>
 </head>
