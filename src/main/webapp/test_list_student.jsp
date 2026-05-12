@@ -5,9 +5,8 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
-
 <div>
-氏名:${name }(${no })
+氏名：
 </div>
 <table border="1">
 	<tr>
@@ -23,7 +22,6 @@
 	<td></td>
 	</tr>
 </table>
-
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
