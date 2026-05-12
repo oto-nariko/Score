@@ -14,10 +14,10 @@
 		<th>点数</th>
 	</tr>
 	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
 	</tr>
 </table>
 </body>
