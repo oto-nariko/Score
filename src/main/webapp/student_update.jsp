@@ -27,7 +27,6 @@
 
 	<button type="submit" name="login">変更</button>
 
-</form>
 <a href="student_list.jsp">戻る</a>
 </body>
 <%@include file="../../footer.jsp" %>

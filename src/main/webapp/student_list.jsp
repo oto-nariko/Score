@@ -4,7 +4,6 @@
 <html>
 <%@include file="../../header.jsp" %>
 <body>
-
 <%@include file="../../sidebar.jsp" %>
 
 <h2>学生管理</h2>
@@ -21,7 +20,6 @@
 	<input type="checkbox" name="f3" value="t">
 	<label>在学中</label>
 	<button type="submit">絞込み</button>
-</form>
 
 <a href="student_create">新規登録</a>
 

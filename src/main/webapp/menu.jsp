@@ -8,7 +8,7 @@
 	<h2>メニュー</h2>
 	<div>
 	<p>
-	<a href='student_list.jsp'>学生管理</a>
+	<a href='main/StudentList.action'>学生管理</a>
 	</p>
 	<div>
 	

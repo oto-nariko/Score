@@ -9,8 +9,11 @@ import java.util.List;
 import bean.School;
 import bean.Student;
 
+/*
+ * 生徒DBの操作をするクラス
+ */
 public class StudentDao extends Dao {
-	
+	//共通のSQLをbaseSqlとする
 	private String baseSql = "select * from student where school_cd=?";
 	
 	
@@ -19,6 +22,12 @@ public class StudentDao extends Dao {
 
 	}
 	
+	/*
+	 * resultSet:DBのデータを入れる引数
+	 * school:所属学校を入れる引数
+	 * 
+	 * DBのデータをListに変換するメソッド
+	 */
 	private List<Student> postFilter(ResultSet resultSet, School school) throws Exception {
 		
 		List<Student> list = new ArrayList<>();
@@ -40,7 +49,10 @@ public class StudentDao extends Dao {
 		return list;
 	}
 	
-	//入学年度、クラス番号、在籍フラグで絞り込み
+	
+	/* 
+	 * 入学年度、クラス番号、在籍フラグで絞り込みむメソッド
+	 */
 	public List<Student> filter(School school, int entYear, String classNum, boolean isAttend) throws Exception {
 		List<Student> list = new ArrayList<>();
 		Connection con = getConnection();
@@ -85,12 +97,16 @@ public class StudentDao extends Dao {
 		return list;
 	}
 	
-	//入学年度、在籍フラグで絞り込み
+	/*
+	 * 入学年度、在籍フラグで絞り込みするメソッド
+	 */
 	public List<Student> filter(School school, int entYear,boolean isAttend) throws Exception {
 		return filter(school, entYear, null, isAttend);
 	}
 	
-	//在籍フラグで絞り込み
+	/*
+	 * 在籍フラグで絞り込み
+	 */
 	public List<Student> filter(School school, boolean isAttend) throws Exception {
 		return filter(school, 0, null, isAttend);
 	}
