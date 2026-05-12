@@ -6,7 +6,7 @@
 <body>
 <%@include file="../../sidebar.jsp" %>
 <div>氏名：</div>
-<table border="1">
+<table>
 	<tr>
 		<th>科目名</th>
 		<th>科目コード</th>
