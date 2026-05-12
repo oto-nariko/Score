@@ -5,9 +5,7 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
-<div>
-氏名：
-</div>
+<div>氏名：</div>
 <table border="1">
 	<tr>
 		<th>科目名</th>
