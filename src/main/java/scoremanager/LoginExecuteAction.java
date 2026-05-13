@@ -34,7 +34,7 @@ public class LoginExecuteAction extends Action {
 			
 			if (teacher!=null) {
 				session.setAttribute("user", teacher);
-				req.getRequestDispatcher("/header.jsp").forward(req, res);//後で/menu.jspに変更してください
+				req.getRequestDispatcher("/menu.jsp").forward(req, res);//後で/menu.jspに変更してください
 			} else {
 				req.setAttribute("errors", "IDまたはパスワードが間違っています");
 				req.getRequestDispatcher("/login.jsp").forward(req, res);
