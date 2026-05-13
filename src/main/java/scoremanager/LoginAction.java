@@ -7,7 +7,7 @@ import tool.Action;
 
 /*
  * ログイン画面を表示させるAction
- * http://localhost:8080/Score/scoremanager/Login.actionで起動
+ *http://localhost:8080/Score/scoremanager/Login.action 起動
  */
 
 public class LoginAction extends Action {

@@ -14,10 +14,10 @@
 		<th>科目名</th>
 	</tr>
 	<tr>
-	<td>${subject.id}</td>
-	<td>${subject.name}</td>
-	<td><a href="SubjectUpdateAction">変更</a></td>
-	<td><a href="SubjectDeleteAction">削除</a></td>
+		<td>${subject.cd}</td>
+		<td>${subject.name}</td>
+		<td><a href="SubjectUpdateAction">変更</a></td>
+		<td><a href="SubjectDeleteAction">削除</a></td>
 	</tr>
 </c:forEach>
 </table>
