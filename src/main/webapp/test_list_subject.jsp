@@ -15,15 +15,30 @@
 		<th>1回</th>
 		<th>2回</th>
 	</tr>
+	
+	<c:forEach var="student" items="${list}">
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>{student.entYear}</td>
+		<td>{student.classNum}</td>
+		<td>{student.no}</td>
+		<td>{student.name}</td>
+		
+		<td>
+			<c:choose>
+				<c:when test="${empty score.point1}">-</c:when>
+				<c:otherwise>${score.point1 }</c:otherwise>
+			</c:choose>
+		</td>
+		<td>
+			<c:choose>
+				<c:when test="${empty score.point2}">-</c:when>
+				<c:otherwise>${score.point2 }</c:otherwise>
+			</c:choose>
+		</td>
+		
 	</tr>
 	
+	</c:forEach>	
 </table>
 </body>
 <%@include file="../../footer.jsp" %>
