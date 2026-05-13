@@ -33,7 +33,7 @@
 	<button type="submit">絞込み</button>
 </form>
 
-<a href="student_create">新規登録</a>
+<a href="../main/StudentCreate.action">新規登録</a>
 
 <table border="1">
 	<tr>

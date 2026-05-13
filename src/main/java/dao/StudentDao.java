@@ -111,7 +111,32 @@ public class StudentDao extends Dao {
 		return filter(school, 0, null, isAttend);
 	}
 	
+	/*
+	 * 学生登録するメソッド
+	 */
 	public boolean save(Student student) throws Exception {
+		boolean result = false;
+		String sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) valuse (?, ?, ?, ?, ?, ?)";
 		
+		try (Connection con = getConnection();
+				PreparedStatement st = con.prepareStatement(sql)) {
+			
+			st.setInt(1, student.getEntYear());
+			st.setString(2, student.getNo());
+			st.setString(3, student.getName());
+			st.setString(4, student.getClassNum());
+			st.setBoolean(5, student.isAttend());
+			st.setString(6, student.getSchool().getCd());
+			
+			int line = st.executeUpdate();
+			
+			if (line > 0) {
+				result = true;
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		
+		return result;
 	}
 }
