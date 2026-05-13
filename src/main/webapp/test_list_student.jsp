@@ -13,12 +13,14 @@
 		<th>回数</th>
 		<th>点数</th>
 	</tr>
+	<c:forEach var="subject" items="${list}">
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>{subject.name}</td>
+		<td>{subject.cd}</td>
+		<td>{subject.no}</td>
+		<td>{subject.score}</td>
 	</tr>
+	</c:forEach>
 </table>
 </body>
 <%@include file="../../footer.jsp" %>
