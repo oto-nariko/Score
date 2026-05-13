@@ -7,7 +7,7 @@
 <%@include file="../../sidebar.jsp" %>
 <main>
 <h2>成績管理</h2>
-<form action="TestRegistAction" method="post">
+<form action="TestRegist.action" method="post">
 	<label>入学年度</label>
 		<select name="f1">
 			<option value="">--------</option>
@@ -43,7 +43,7 @@
 
 
 <div><label>科目：${subject_name}（${f4}回目）</label></div>
-<form action="TestRegistExecuteAction" method="post">
+<form action="TestRegistExecute.action" method="post">
 	<table border="1">
 		<thead>
 			<tr>
