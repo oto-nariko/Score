@@ -17,7 +17,7 @@ public class SubjectDao extends Dao {
 	}
 	
 	public List<Subject> filter(School school) throws Exception{
-		List<Subject> List=new ArrayList<>();
+		List<Subject> list=new ArrayList<>();
 		Connection connection=getConnection();
 		PreparedStatement statement=null;
 		try {
