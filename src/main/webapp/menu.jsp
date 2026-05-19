@@ -15,16 +15,16 @@
 	<p>成績管理</p>
 	
 	<p>
-		<a href='test_regist.jsp'>成績登録</a>
+		<a href='main/TestRegist.action'>成績登録</a>
 	</p>
 	
 	<p>
-		<a href='test_list.jsp'>成績参照</a>
+		<a href='main/TestList.action'>成績参照</a>
 	</p>
 	
 	</div>
 		<p>
-			<a href='subject_list.jsp'>科目管理</a>
+			<a href='main/SubjectList.action'>科目管理</a>
 		</p>
 	</div>
 </body>
