@@ -116,7 +116,7 @@ public class StudentDao extends Dao {
 	 */
 	public boolean save(Student student) throws Exception {
 		boolean result = false;
-		String sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) valuse (?, ?, ?, ?, ?, ?)";
+		String sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) values (?, ?, ?, ?, ?, ?)";
 		
 		try (Connection con = getConnection();
 				PreparedStatement st = con.prepareStatement(sql)) {
