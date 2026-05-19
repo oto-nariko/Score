@@ -40,5 +40,17 @@
 		</div>
 
 	</form>
+	
+	<script>
+		function togglePassword(){
+			const password=
+				document.getElementById("password");
+			if (password.type==="password"){
+				password.type="text"
+					}else{
+						pssword.type="password";
+						}
+		}
+	</script>
 </body>
 </html>
