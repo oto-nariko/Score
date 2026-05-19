@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class TestDao extends Dao {
 			int num,
 			School school
 			){
-		return null
+		return null;
 			}
 	public boolean save(List<Test> list) {
 	       return false;
