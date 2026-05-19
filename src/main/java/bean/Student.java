@@ -7,6 +7,12 @@ public class Student {
 	private int entYear;
 	private String classNum;
 	private boolean isAttend;
+	public boolean isAttend() {
+		return isAttend;
+	}
+	public void setAttend(boolean isAttend) {
+		this.isAttend = isAttend;
+	}
 	private School school;
 	public String getNo() {
 		return no;
@@ -32,12 +38,7 @@ public class Student {
 	public void setClassNum(String classNum) {
 		this.classNum = classNum;
 	}
-	public boolean isAttend() {
-		return isAttend;
-	}
-	public void setAttend(boolean isAttend) {
-		this.isAttend = isAttend;
-	}
+
 	public School getSchool() {
 		return school;
 	}

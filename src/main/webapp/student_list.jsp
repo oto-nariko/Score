@@ -56,7 +56,7 @@
 					<c:otherwise>x</c:otherwise>
 				</c:choose>
 			</td>
-			<td><a herf="#">変更</a></td>
+			<td><a href="StudentUpdate.action?no=${student.no}">変更</a></td>
 		</tr>
 	</c:forEach>
 </table>
