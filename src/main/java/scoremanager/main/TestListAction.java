@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import bean.School;
 import bean.Teacher;
@@ -17,7 +18,8 @@ public class TestListAction extends Action {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {  
-		Teacher teacher=(Teacher) req.getSession().getAttribute("user");
+		HttpSession session = req.getSession();
+		Teacher teacher = (Teacher)session.getAttribute("user");
 		School school=teacher.getSchool();
 
 		ClassNumDao cNumDao=new ClassNumDao();
