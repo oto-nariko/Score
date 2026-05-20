@@ -13,6 +13,7 @@ public class ClassNumDao extends Dao {
 	
 	public ClassNum  get(String class_num, School school) {
 		
+		return class_info;
 	}
 	
 	/*

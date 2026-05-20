@@ -17,9 +17,40 @@ public class StudentDao extends Dao {
 	private String baseSql = "select * from student where school_cd=?";
 	
 	
-	
+	/*
+	 * no:学籍番号の引数
+	 * 
+	 * 学生の詳細データを取得するメソッド
+	 */
 	public Student get(String no) throws Exception {
-
+		Student student = null;
+		
+		//DB接続の用意
+		Connection con = getConnection();
+		PreparedStatement st;
+		st=con.prepareStatement(
+			"select * from student where no=?");
+		st.setString(1, no);
+		ResultSet rs=st.executeQuery();
+		
+		while (rs.next()) {
+			student = new Student();
+			student.setNo(rs.getString("no"));
+			student.setName(rs.getString("name"));
+			student.setEntYear(rs.getInt("ent_year"));
+			student.setClassNum(rs.getString("class_num"));
+			student.setAttend(rs.getBoolean("is_attend"));
+			
+			School school = new School();
+			school.setCd(rs.getString("school_cd"));
+			student.setSchool(school);
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return student;
 	}
 	
 	/*
@@ -116,7 +147,7 @@ public class StudentDao extends Dao {
 	 */
 	public boolean save(Student student) throws Exception {
 		boolean result = false;
-		String sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) valuse (?, ?, ?, ?, ?, ?)";
+		String sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) values (?, ?, ?, ?, ?, ?)";
 		
 		try (Connection con = getConnection();
 				PreparedStatement st = con.prepareStatement(sql)) {

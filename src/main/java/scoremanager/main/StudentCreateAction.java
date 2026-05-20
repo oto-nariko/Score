@@ -23,7 +23,7 @@ public class StudentCreateAction extends Action {
 		List<String> classList = cDao.filter(teacher.getSchool());
 		
 		//JSPに送るためにデータをセット
-		req.setAttribute("classList", classList);
+		req.setAttribute("class_list", classList);
 		
 		//フォワード
 		req.getRequestDispatcher("/student_create.jsp").forward(req, res);

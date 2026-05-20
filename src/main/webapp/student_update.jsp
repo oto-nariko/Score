@@ -19,7 +19,10 @@
 
 	<label>クラス</label>
 	<select name="class_num">
-	<option value="">--------</option>
+		<option value="">--------</option>
+		<c:forEach var="num" items="${class_num}">
+			<option value="${num}" ${f2 == num ? 'selected' : ''}>${num}</option>
+		</c:forEach>
 	</section><br>
 
 	<label>在学中</label>

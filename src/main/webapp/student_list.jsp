@@ -33,7 +33,7 @@
 	<button type="submit">絞込み</button>
 </form>
 
-<a href="../main/StudentCreate.action">新規登録</a>
+<a href="StudentCreate.action">新規登録</a>
 
 <table border="1">
 	<tr>
@@ -56,7 +56,7 @@
 					<c:otherwise>x</c:otherwise>
 				</c:choose>
 			</td>
-			<td><a herf="#">変更</a></td>
+			<td><a href="StudentUpdate.action?no=${student.no}">変更</a></td>
 		</tr>
 	</c:forEach>
 </table>

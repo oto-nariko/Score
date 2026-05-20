@@ -8,10 +8,14 @@
 
 <h2>学生情報登録</h2>
 
+<c:if test="${not empty error_message}">
+	<p>${error_message}</p>
+</c:if>
+
 <form action="StudentCreateExecute.action" method="post">
 
 	<label>入学年度</label>
-	<select name="ent_year" required>
+	<select name="ent_year">
     <option value="">--------</option>
     <c:forEach var="year" begin="2020" end="2035">
     	<option value="${year}" ${ent_year == year ? 'selected' : ''}>${year}</option>
