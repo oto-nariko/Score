@@ -18,7 +18,7 @@ public class SubjectCreateExecuteAction extends Action {
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
 		HttpSession session=req.getSession();
-		Teacher teacher =(Teacher) session.getAttribute(req.getContextPath() + "/scoremanager/main/Login.action");
+		Teacher teacher =(Teacher) session.getAttribute("user");
 		
 		if (teacher == null) {
 			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
