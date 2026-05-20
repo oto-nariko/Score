@@ -29,5 +29,7 @@ public class TestListAction extends Action {
 
 		for (int i=year-10;i <=year; i++){
 		            entYearSet.add(i);
+		            }
+		
 		 }
-}
+	}
