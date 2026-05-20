@@ -30,14 +30,4 @@ public class TestListAction extends Action {
 		for (int i=year-10;i <=year; i++){
 		            entYearSet.add(i);
 		 }
-
-		 List<String> classNumSet=cNumDao.filter(school);
-		 List<Subject> subjects=sDao.filter(school);
-
-		 req.setAttribute("ent_year_set", entYearSet);
-		 req.setAttribute("class_num_set", classNumSet);
-		 req.setAttribute("subjects", subjects);
-
-		 req.getRequestDispatcher("test_list.jsp").forward(req, res);
-		 }
-	}
+}
