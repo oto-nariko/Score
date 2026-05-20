@@ -12,9 +12,34 @@ import bean.Subject;
 
 public class SubjectDao extends Dao {
 	public Subject get(String cd, School school) throws Exception {
-		;
+		Subject subject=null;
 		
-	}
+		Connection connection=getConnection();
+		PreparedStatement statement=null;
+		
+		try {
+			statement=connection.prepareStatement(
+					"select*from subject where CD=? andSCHOOL_CD=?"
+					);
+			statement.setString(1, cd);
+            statement.setString(2, school.getCd());
+
+            ResultSet rSet = statement.executeQuery();
+
+            if (rSet.next()) {
+                subject = new Subject();
+                subject.setCd(rSet.getString("CD"));
+                subject.setName(rSet.getString("NAME"));
+                subject.setSchool(school);
+            }
+
+        } finally {
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        }
+
+        return subject;
+    }
 	
 	public List<Subject> filter(School school) throws Exception{
 		List<Subject> list=new ArrayList<>();
@@ -44,9 +69,11 @@ public class SubjectDao extends Dao {
 	}
 	
 	public boolean save(Subject subject) {
+		return false;
 		
 	}
 	public boolean delete(Subject subject) {
+		return false;
 		
 	}
 }
