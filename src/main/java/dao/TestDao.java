@@ -10,7 +10,7 @@ import scoremanager.main.Test;
 
 public class TestDao extends Dao {
 	
-	private string baseSql;
+	private String baseSql;
 	
 	public Test get(
 			Student student,

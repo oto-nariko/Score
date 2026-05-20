@@ -48,7 +48,7 @@
 			if (password.type==="password"){
 				password.type="text"
 					}else{
-						pssword.type="password";
+						password.type="password";
 						}
 		}
 	</script>
