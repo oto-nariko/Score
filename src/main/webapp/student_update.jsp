@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
@@ -8,6 +10,8 @@
 <%@include file="../../sidebar.jsp" %>
 
 <h2>学生情報変更</h2>
+<form action="StudentUpdateExecute.action" method="post">
+
 	<label>入学年度</label>
 	<input type="text" name="ent_year" value="${ent_year }" readonly ><br>
 
@@ -20,15 +24,17 @@
 	<label>クラス</label>
 	<select name="class_num">
 		<option value="">--------</option>
-		<c:forEach var="num" items="${class_num}">
-			<option value="${num}" ${f2 == num ? 'selected' : ''}>${num}</option>
+		<c:forEach var="num" items="${class_list}">
+			<option value="${num}" ${class_num == num ? 'selected' : ''}>${num}</option>
 		</c:forEach>
-	</section><br>
+	</select><br>
 
 	<label>在学中</label>
-	<input type="chexbox" name="is_attend"><br>
+	<input type="checkbox" name="is_attend" ${is_attend ? 'checked' : '' }><br>
 
 	<button type="submit" name="login">変更</button>
+	
+</form>
 
 <a href="student_list.jsp">戻る</a>
 </body>

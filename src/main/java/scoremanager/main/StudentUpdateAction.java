@@ -15,6 +15,7 @@ public class StudentUpdateAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req,HttpServletResponse res) throws Exception {
+
 		//jspから学生番号を受け取る
 		String no = req.getParameter("no");
 		
@@ -28,7 +29,13 @@ public class StudentUpdateAction extends Action{
 		List<String> class_list = cDao.filter(school);
 		
 		//箱詰めしてフォワード
+		req.setAttribute("ent_year", student.getEntYear());
+		req.setAttribute("no", student.getNo());
+		req.setAttribute("name", student.getName());
+		req.setAttribute("class_num", student.getClassNum());
+		req.setAttribute("is_attend", student.isAttend());
 		req.setAttribute("class_list", class_list);
+		
 		req.getRequestDispatcher("/student_update.jsp").forward(req, res);
 	}
 }

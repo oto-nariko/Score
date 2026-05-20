@@ -143,21 +143,38 @@ public class StudentDao extends Dao {
 	}
 	
 	/*
-	 * 学生登録するメソッド
+	 * 学生登録、変更するメソッド
 	 */
 	public boolean save(Student student) throws Exception {
 		boolean result = false;
-		String sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) values (?, ?, ?, ?, ?, ?)";
+		
+		//既に登録されている学生いかどうかチェック
+		Student exists = get(student.getNo());
+		
+		String sql = "";
+		
+		if (exists != null) { //更新
+			sql = "update student set name = ?, class_num = ?, is_attend = ? where no = ?";
+		} else { //新規登録
+			sql = "insert into student (ent_year, no, name, class_num, is_attend, school_cd) values (?, ?, ?, ?, ?, ?)";
+		}
 		
 		try (Connection con = getConnection();
 				PreparedStatement st = con.prepareStatement(sql)) {
 			
-			st.setInt(1, student.getEntYear());
-			st.setString(2, student.getNo());
-			st.setString(3, student.getName());
-			st.setString(4, student.getClassNum());
-			st.setBoolean(5, student.isAttend());
-			st.setString(6, student.getSchool().getCd());
+			if (exists != null) { //更新
+				st.setString(1, student.getName());
+				st.setString(2, student.getClassNum());
+				st.setBoolean(3, student.isAttend());
+				st.setString(4, student.getNo());
+			} else { //新規登録
+				st.setInt(1, student.getEntYear());
+				st.setString(2, student.getNo());
+				st.setString(3, student.getName());
+				st.setString(4, student.getClassNum());
+				st.setBoolean(5, student.isAttend());
+				st.setString(6, student.getSchool().getCd());
+			}
 			
 			int line = st.executeUpdate();
 			
