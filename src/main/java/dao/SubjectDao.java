@@ -19,7 +19,7 @@ public class SubjectDao extends Dao {
 		
 		try {
 			statement=connection.prepareStatement(
-					"select*from subject where CD=? andSCHOOL_CD=?"
+					"select*from subject where CD=? and SCHOOL_CD=?"
 					);
 			statement.setString(1, cd);
             statement.setString(2, school.getCd());
