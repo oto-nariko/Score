@@ -32,10 +32,9 @@ public class TestListSubjectExecuteAction extends Action {
 			entYear=Integer.parseInt(entYearStr);
 			}
 		
-		int num = 0;
-
-		if (numStr != null && !numStr.isEmpty()) {
-		    num = Integer.parseInt(numStr);
+		int num=0;
+		if (numStr!=null&&!numStr.isEmpty()){
+		    num=Integer.parseInt(numStr);
 		}
 
 		ClassNumDao cDao=new ClassNumDao();
@@ -43,15 +42,17 @@ public class TestListSubjectExecuteAction extends Action {
 		TestDao tDao=new TestDao();
 
 		List<String> classList=cDao.filter(teacher.getSchool());
-
 		List<Subject> subjectList=subDao.filter(teacher.getSchool());
-
 		List<Test> tests=new ArrayList<>();
+		List<Integer> entYearSet=new ArrayList<>();
+		int year=2026;
+		for (int i=year-10;i<=year; i++) {
+			entYearSet.add(i);
+		}
 
 		if (entYear==0
-				|| classNum==null || classNum.equals("0")
-				|| subjectCd==null || subjectCd.equals("0")){
-
+				|| classNum==null || classNum.equals("")
+				|| subjectCd==null || subjectCd.equals("")){
 			req.setAttribute("error","入学年度とクラスと科目を選択してください");
 			}else{
 
@@ -62,14 +63,15 @@ public class TestListSubjectExecuteAction extends Action {
 			if (tests==null || tests.size()==0){
 				req.setAttribute("error","学生情報が存在しませんでした");
 				}
-
 			req.setAttribute("subject",subject);
 			}
 
-		req.setAttribute("f1",entYear);
+		req.setAttribute("f1",entYearStr);
 		req.setAttribute("f2",classNum);
 		req.setAttribute("f3",subjectCd);
+		req.setAttribute("f4",numStr);
 
+		req.setAttribute("ent_year_set",entYearSet);
 		req.setAttribute("class_num_set",classList);
 		req.setAttribute("subjects",subjectList);
 		req.setAttribute("tests",tests);
