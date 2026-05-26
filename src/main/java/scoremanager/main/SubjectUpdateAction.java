@@ -33,7 +33,13 @@ public class SubjectUpdateAction extends Action {
 		if(subject !=null) {
 			req.setAttribute("cd", subject.getCd());
 			req.setAttribute("name", subject.getName());		
+		}else {
+			// 🧪【原因特定用の仕込み】
+			// もし画面が空っぽになるなら、こっちのブロックが動いています！
+			req.setAttribute("cd", "未取得:" + (cd != null ? cd : "URLのcd引数がnullです"));
+			req.setAttribute("name", "学校コード「" + (school != null ? school.getCd() : "null") + "」の中にこの科目は存在しません");
 		}
+		
 		req.getRequestDispatcher("/subject_update.jsp").forward(req, res);
 		
 	}
