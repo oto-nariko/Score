@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpSession;
 
 import bean.Subject;
 import bean.Teacher;
+import bean.TestListSubject;
 import dao.ClassNumDao;
 import dao.SubjectDao;
-import dao.TestDao;
+import dao.TestListSubjectDao;
 import tool.Action;
 
 public class TestListSubjectExecuteAction extends Action {
@@ -31,19 +32,14 @@ public class TestListSubjectExecuteAction extends Action {
 		if (entYearStr!=null&&!entYearStr.isEmpty()){
 			entYear=Integer.parseInt(entYearStr);
 			}
-		
-		int num=0;
-		if (numStr!=null&&!numStr.isEmpty()){
-		    num=Integer.parseInt(numStr);
-		}
 
 		ClassNumDao cDao=new ClassNumDao();
 		SubjectDao subDao=new SubjectDao();
-		TestDao tDao=new TestDao();
+		TestListSubjectDao tlsDao=new TestListSubjectDao();
 
 		List<String> classList=cDao.filter(teacher.getSchool());
 		List<Subject> subjectList=subDao.filter(teacher.getSchool());
-		List<Test> tests=new ArrayList<>();
+		List<TestListSubject> tests=new ArrayList<>();
 		List<Integer> entYearSet=new ArrayList<>();
 		int year=2026;
 		for (int i=year-10;i<=year; i++) {
@@ -58,7 +54,7 @@ public class TestListSubjectExecuteAction extends Action {
 
 			Subject subject=subDao.get(subjectCd,teacher.getSchool());
 
-			tests=tDao.filter(entYear,classNum,subject,num,teacher.getSchool());
+			tests=tlsDao.filter(entYear,classNum,subject,teacher.getSchool());
 
 			if (tests==null || tests.size()==0){
 				req.setAttribute("error","学生情報が存在しませんでした");
@@ -75,6 +71,6 @@ public class TestListSubjectExecuteAction extends Action {
 		req.setAttribute("class_num_set",classList);
 		req.setAttribute("subjects",subjectList);
 		req.setAttribute("tests",tests);
-		req.getRequestDispatcher("/test_list.jsp").forward(req,res);
+		req.getRequestDispatcher("/test_list_subject.jsp").forward(req, res);
 		}
 	}

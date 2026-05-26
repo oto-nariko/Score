@@ -47,11 +47,11 @@ public class TestListSubjectDao extends Dao {
 		//sql
 		PreparedStatement st;
 		st=con.prepareStatement(
-				"select t.*, s.name as student_name "
+				"select t.*, s.name as student_name, s.ent_year as ent_year, s.class_num as class_num "
 				+ "from test t "
-				+ "join student s on t.student_no = s.no "
-				+ "where t.ent_year=? "
-				+ "and t.class_num=? "
+				+ "join student s on t.student_no = s.no and t.school_cd = s.school_cd "
+				+ "where s.ent_year=? "
+				+ "and s.class_num=? "
 				+ "and t.subject_cd=? "
 				+ "and t.school_cd=?"
 			);
