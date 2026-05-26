@@ -69,27 +69,71 @@ public class SubjectDao extends Dao {
 	
 	public boolean save(Subject subject) throws Exception {
 		boolean result = false;
-		String sql = "insert into subject(cd,name,school_cd) values(?,?,?)";
+		Connection con = getConnection();
+		PreparedStatement st = null;
 		
-		try (Connection con = getConnection();
-				PreparedStatement st = con.prepareStatement(sql)) {
-			st.setString(1, subject.getCd());
-			st.setString(2, subject.getName());
-			st.setString(3, subject.getSchool().getCd());
+		try {
+			// 同じ主キーのデータが既に存在するか get メソッドで確認する
+			Subject exist = get(subject.getCd(), subject.getSchool());
+			
+			String sql;
+			if (exist == null) {
+				// データがなければ新規登録（INSERT）
+				sql = "insert into subject(cd, name, school_cd) values(?,?,?)";
+				st = con.prepareStatement(sql);
+				st.setString(1, subject.getCd());
+				st.setString(2, subject.getName());
+				st.setString(3, subject.getSchool().getCd());
+			} else {
+				// データが既に存在していれば更新（UPDATE）
+				sql = "update subject set name=? where cd=? and school_cd=?";
+				st = con.prepareStatement(sql);
+				st.setString(1, subject.getName());
+				st.setString(2, subject.getCd());
+				st.setString(3, subject.getSchool().getCd());
+			}
 			
 			int line = st.executeUpdate();
-			
 			if (line > 0) {
 				result = true;
 			}
 			
 		} catch (Exception e) {
 			throw e;
+		} finally {
+			if (st != null) st.close();
+			if (con != null) con.close();
 		}
 		return result;
 	}
 
-	public boolean delete(Subject subject) {
-		return false;
+	public boolean delete(Subject subject) throws Exception{
+		Connection connection=getConnection();
+		PreparedStatement st=null;
+		int count=0;
+		
+		try {
+			//科目コード（cd）と学校コード（school_cd）が一致するデータを削除するSQL
+			st=connection.prepareStatement("delete from subject where cd = ? and school_cd = ?");
+			//SQLの?の部分に、引数で受け取ったsubjectのデータを当てはめる
+			st.setString(1, subject.getCd());
+			st.setString(2, subject.getSchool().getCd());
+			//sql実行して、削除された件数を受け取る
+			count = st.executeUpdate();
+		}catch (Exception e){
+			//エラーが発生した場合はさらに上にエラーを投げる
+			throw e;
+			
+		}finally {
+			if(st !=null) {
+				st.close();
+			}
+			if (connection !=null) {
+				connection.close();
+				
+			}
+		}
+		// 1件以上削除できていたら true、失敗（0件）なら false を返す
+		return count>0;
 	}
 }

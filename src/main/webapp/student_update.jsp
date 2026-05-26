@@ -19,7 +19,7 @@
 	<input type="text" name="no" value="${no }" readonly>
 
 	<label>氏名</label>
-	<input type="text" name="name" value="${name }"><br>
+	<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required><br>
 
 	<label>クラス</label>
 	<select name="class_num">
@@ -36,7 +36,7 @@
 	
 </form>
 
-<a href="student_list.jsp">戻る</a>
+<a href="StudentList.action">戻る</a>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>

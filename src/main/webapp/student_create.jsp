@@ -23,10 +23,10 @@
 	</select><br>
 
 	<label>学生番号</label>
-	<input type="text" name="no" value="${no}" placeholder="学生番号を入力してください" required><br>
+	<input type="text" name="no" value="${no}" placeholder="このフィールドを入力してください" required><br>
 
 	<label>氏名</label>
-	<input type="text" name="name" value="${name}" placeholder="氏名を入力してください" required><br>
+	<input type="text" name="name" value="${name}" placeholder="このフィールドを入力してください" required><br>
 
 	<label>クラス</label>
 	<select name="class_num" required>

@@ -8,7 +8,7 @@
 <main>
 <h2>学生情報変更</h2>
 <p>登録が完了しました</p>
-<a href="student_list.jsp">学生一覧</a>
+<a href="StudentList.action">学生一覧</a>
 </main>
 </body>
 <%@include file="../../footer.jsp" %>
