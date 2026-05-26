@@ -72,7 +72,7 @@ public class StudentCreateExecuteAction extends Action {
 		    List<String> classList = cDao.filter(teacher.getSchool());
 		    req.setAttribute("class_list", classList);
 		    
-		    req.getRequestDispatcher("/student_create.jsp").forward(req, res);
+		    req.getRequestDispatcher("/student_create_done.jsp").forward(req, res);
 		}
 
 
