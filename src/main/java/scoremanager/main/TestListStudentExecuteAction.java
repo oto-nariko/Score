@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpSession;
 
 import bean.Subject;
 import bean.Teacher;
+import bean.TestListStudent;
 import dao.ClassNumDao;
 import dao.SubjectDao;
-import dao.TestDao;
+import dao.TestListStudentDao;
 import tool.Action;
 
 public class TestListStudentExecuteAction extends Action {
@@ -19,7 +20,7 @@ public class TestListStudentExecuteAction extends Action {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession();
 		if (session == null) {
 			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
@@ -35,16 +36,16 @@ public class TestListStudentExecuteAction extends Action {
 
 		ClassNumDao cDao = new ClassNumDao();
 		SubjectDao subDao = new SubjectDao();
-		TestDao tDao = new TestDao();
+		TestListStudentDao tlsDao = new TestListStudentDao();
 
 		List<String> classList = cDao.filter(teacher.getSchool());
 		List<Subject> subjectList = subDao.filter(teacher.getSchool());
-		List<Test> tests = new ArrayList<>();
+		List<TestListStudent> tests = new ArrayList<>();
 
 		if (studentNo == null || studentNo.isEmpty()) {
 			req.setAttribute("error", "このフィールドを入力してください。");
 			} else {
-				tests = tDao.filter(studentNo);
+				tests = tlsDao.filter(studentNo);
 				if (tests == null || tests.size() == 0) {
 					req.setAttribute("error", "学生情報が存在しませんでした");
 					}
@@ -55,7 +56,7 @@ public class TestListStudentExecuteAction extends Action {
 		req.setAttribute("subjects", subjectList);
 		req.setAttribute("tests", tests);
 
-		req.getRequestDispatcher("/scoremanager/main/test_list_student.jsp")
+		req.getRequestDispatcher("/test_list_student.jsp")
 		.forward(req, res);
 	}
 

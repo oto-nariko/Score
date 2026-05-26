@@ -40,10 +40,10 @@ public class TestListSubject {
 	public void setPoints(Map<Integer,Integer> points) {
 		this.points=points;
 	}
-	public String getPoints(int key) {
-		return points.get(key);
+	public String getPoint(int key) {
+		return String.valueOf(points.get(key));
 	}
 	public void putPoint(int key, int value) {
-		points.put=(key,value);
+		points.put(key,value);
 	}
 }
