@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
+	<main class="content">
 	<h2>メニュー</h2>
 	<div>
 	<p>
@@ -27,6 +29,8 @@
 			<a href='/Score/scoremanager/main/SubjectList.action'>科目管理</a>
 		</p>
 	</div>
+	</main>
+</div>	
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
