@@ -7,5 +7,5 @@
 
 <!-- ログイン後 -->
 <p><span>${user.name}様</span></p>
-<p><a href="main/Logout.action">ログアウト</a></p>
+<p><a href="/Score/scoremanager/main/Logout.action">ログアウト</a></p>
 </head>

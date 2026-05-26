@@ -107,7 +107,33 @@ public class SubjectDao extends Dao {
 		return result;
 	}
 
-	public boolean delete(Subject subject) {
-		return false;
+	public boolean delete(Subject subject) throws Exception{
+		Connection connection=getConnection();
+		PreparedStatement st=null;
+		int count=0;
+		
+		try {
+			//科目コード（cd）と学校コード（school_cd）が一致するデータを削除するSQL
+			st=connection.prepareStatement("delete from subject where cd = ? and school_cd = ?");
+			//SQLの?の部分に、引数で受け取ったsubjectのデータを当てはめる
+			st.setString(1, subject.getCd());
+			st.setString(2, subject.getSchool().getCd());
+			//sql実行して、削除された件数を受け取る
+			count = st.executeUpdate();
+		}catch (Exception e){
+			//エラーが発生した場合はさらに上にエラーを投げる
+			throw e;
+			
+		}finally {
+			if(st !=null) {
+				st.close();
+			}
+			if (connection !=null) {
+				connection.close();
+				
+			}
+		}
+		// 1件以上削除できていたら true、失敗（0件）なら false を返す
+		return count>0;
 	}
 }
