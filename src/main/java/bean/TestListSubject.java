@@ -19,13 +19,13 @@ public class TestListSubject {
 	public String getNo() {
 		return no;
 	}
-	public void setStudentNo(String No) {
+	public void setNo(String No) {
 		this.no=no;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setStudentName(String name) {
+	public void setName(String name) {
 		this.name=name;
 	}
 	public String getClassNum() {
