@@ -29,7 +29,7 @@ public class Test {
 	public School getSchool() {
 		return school;
 	}
-	public void setScholl(School school) {
+	public void setSchool(School school) {
 		this.school=school;
 	}
 	public int getNo() {
