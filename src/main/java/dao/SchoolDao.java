@@ -1,4 +1,5 @@
 package dao;
+
 import bean.School;
 
 public class SchoolDao extends Dao {
