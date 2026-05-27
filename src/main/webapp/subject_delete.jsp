@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
-<main>
+<main class="content">
 	<h2>科目情報削除</h2>
 	<p>「${subject_name}(${subject_cd})」を削除してもよろしいですか</p>
 	<form action="SubjectDeleteExecute.action" method="post">
@@ -17,6 +17,7 @@
     <a href="SubjectList.action">戻る</a>
     
 </main>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>

@@ -5,10 +5,11 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 
 <%@include file="../../sidebar.jsp" %>
 
+<main class="content">
 <h2>学生情報変更</h2>
 <form action="StudentUpdateExecute.action" method="post">
 
@@ -37,6 +38,8 @@
 </form>
 
 <a href="StudentList.action">戻る</a>
+</main>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>

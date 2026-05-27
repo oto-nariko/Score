@@ -3,8 +3,9 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
+<main class="content">
 <h2>科目管理</h2>
 <a href="SubjectCreate.action">新規登録</a>
 <table>
@@ -23,6 +24,8 @@
 	</tr>
 	</c:forEach>
 </table>
+</main>
+</div>
 
 </body>
 <%@include file="../../footer.jsp" %>

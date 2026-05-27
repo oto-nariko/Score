@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
-
+<main class="content">
 <h2>学生情報登録</h2>
 
 <c:if test="${not empty error_message}">
@@ -41,7 +41,8 @@
 </form>
 
 <a href="StudentList.action">戻る</a>
-
+</main>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
