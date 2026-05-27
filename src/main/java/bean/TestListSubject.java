@@ -1,13 +1,14 @@
 package bean;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class TestListSubject {
 	private int entYear;
-	private String no;
-	private String name;
+	private String studentNo;
+	private String studentName;
 	private String classNum;
-	private Map<Integer,Integer> points;
+	private Map<Integer,Integer> points=new HashMap<>();
 	
 	
 	public int getEntYear() {
@@ -16,17 +17,17 @@ public class TestListSubject {
 	public void setEntYear(int entYear) {
 		this.entYear=entYear;
 	}
-	public String getNo() {
-		return no;
+	public String getStudentNo() {
+		return studentNo;
 	}
-	public void setNo(String No) {
-		this.no=no;
+	public void setStudentNo(String studentNo) {
+		this.studentNo=studentNo;
 	}
-	public String getName() {
-		return name;
+	public String getStudentName() {
+		return studentName;
 	}
-	public void setName(String name) {
-		this.name=name;
+	public void setStudentName(String studentName) {
+		this.studentName=studentName;
 	}
 	public String getClassNum() {
 		return classNum;
@@ -41,7 +42,12 @@ public class TestListSubject {
 		this.points=points;
 	}
 	public String getPoint(int key) {
-		return String.valueOf(points.get(key));
+		Integer value=points.get(key);
+		
+		if (value==null) {
+			return "";
+		}
+		return String.valueOf(value);
 	}
 	public void putPoint(int key, int value) {
 		points.put(key,value);

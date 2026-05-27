@@ -21,19 +21,19 @@
 	<tr>
 		<td>${student.entYear}</td>
 		<td>${student.classNum}</td>
-		<td>${student.no}</td>
-		<td>${student.name}</td>
+		<td>${student.studentNo}</td>
+		<td>${student.studentName}</td>
 		
 		<td>
 			<c:choose>
-				<c:when test="${empty score.point1}">-</c:when>
-				<c:otherwise>${score.point1 }</c:otherwise>
+				<c:when test="${empty student.getPoint(1)}">-</c:when>
+				<c:otherwise>${student.getPoint(1)}</c:otherwise>
 			</c:choose>
 		</td>
 		<td>
 			<c:choose>
-				<c:when test="${empty score.point2}">-</c:when>
-				<c:otherwise>${score.point2 }</c:otherwise>
+				<c:when test="${empty student.getPoint(2)}">-</c:when>
+				<c:otherwise>${student.getPoint(2) }</c:otherwise>
 			</c:choose>
 		</td>
 		
