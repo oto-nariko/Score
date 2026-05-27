@@ -4,13 +4,13 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>ログイン</title>
-	<link rel="stylesheet" href="login.css" />
+	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/login.css">
 </head>
 <body>
-	<h2>ログイン</h2>
 
 	<form action='LoginExecute.action' method='post'>
+		<h2>ログイン</h2>
 		<div>
 		    ${errors}
 		</div>

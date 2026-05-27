@@ -1,0 +1,95 @@
+@charset "UTF-8";
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: #f8f9fa;
+	font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+body > h2 + form, 
+form ,.login-card{
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px; /* 角を少し丸く */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 綺麗な影をつけて浮き上がらせる */
+    width: 360px; /* ログイン箱の横幅 */
+    box-sizing: border-box;
+	text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333333;
+}
+
+form > div:first-child {
+    color: #ff3333;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 8px;
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+	background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+/* 入力枠をクリック（フォーカス）したときの色 */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #adb5bd; 
+    outline: none;
+}
+
+/* ---パスワードを表示チェックボックスのエリア --- */
+input[type="checkbox"] {
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+    display: inline; /* チェックボックスの横に並べる */
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+}
+/*ログインボタン*/
+input[type="submit"] ,.btn-submit{
+	display: block;          /* リンクをボタンの形に広げる */
+	text-align: center;      /* 文字を真ん中に */
+	text-decoration: none;   /* リンクの下線を消す */
+    width: 100%;
+    padding: 12px;
+    background-color: #6c757d; /* ボタンの色 */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+/* ボタンにマウスを乗せたときの色変更 */
+input[type="submit"]:hover ,.btn-submit:hover{
+    background-color: #5a6268; 
+}
