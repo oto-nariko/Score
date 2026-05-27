@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import bean.Student;
 import bean.Subject;
 import bean.Teacher;
 import bean.TestListStudent;
@@ -45,7 +46,11 @@ public class TestListStudentExecuteAction extends Action {
 		if (studentNo == null || studentNo.isEmpty()) {
 			req.setAttribute("error", "このフィールドを入力してください。");
 			} else {
-				tests = tlsDao.filter(studentNo);
+				Student student = new Student();
+				student.setNo(studentNo);
+				student.setSchool(teacher.getSchool());
+
+				tests = tlsDao.filter(student);
 				if (tests == null || tests.size() == 0) {
 					req.setAttribute("error", "学生情報が存在しませんでした");
 					}
@@ -54,7 +59,7 @@ public class TestListStudentExecuteAction extends Action {
 		req.setAttribute("f4", studentNo);
 		req.setAttribute("class_num_set", classList);
 		req.setAttribute("subjects", subjectList);
-		req.setAttribute("tests", tests);
+		req.setAttribute("list", tests);
 
 		req.getRequestDispatcher("/test_list_student.jsp")
 		.forward(req, res);

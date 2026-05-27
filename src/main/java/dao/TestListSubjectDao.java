@@ -10,9 +10,15 @@ import bean.School;
 import bean.Subject;
 import bean.TestListSubject;
 
-
 public class TestListSubjectDao extends Dao {
-	private String baseSql;
+	private String baseSql=
+			"select t.*,s.name as student_name,s.ent_year as ent_year,s.class_num as class_num "
+			+ "from test t "
+			+ "join student s on t.student_no=s.no and t.school_cd=s.school_cd "
+			+"where s.ent_year=? "
+			+"and s.class_num=? "
+			+"and t.subject_cd=? "
+			+"and t.school_cd=?";
 	
 	public List<TestListSubject> postFilter(
 			ResultSet rSet)throws Exception{
@@ -26,6 +32,7 @@ public class TestListSubjectDao extends Dao {
 			test.setNo(rSet.getString("student_no"));
 			test.setName(rSet.getString("student_name"));
 			test.setClassNum(rSet.getString("class_num"));
+
 			list.add(test);
 		}
 
@@ -39,36 +46,23 @@ public class TestListSubjectDao extends Dao {
 			School school
 			)throws Exception{
 		
-		//検索結果を入れる
 		List<TestListSubject> list=new ArrayList<>();
-		//データベース連携
-		Connection con = getConnection();
+		Connection con=getConnection();
 		
-		//sql
 		PreparedStatement st;
-		st=con.prepareStatement(
-				"select t.*, s.name as student_name, s.ent_year as ent_year, s.class_num as class_num "
-				+ "from test t "
-				+ "join student s on t.student_no = s.no and t.school_cd = s.school_cd "
-				+ "where s.ent_year=? "
-				+ "and s.class_num=? "
-				+ "and t.subject_cd=? "
-				+ "and t.school_cd=?"
-			);
-		st.setInt(1, entYear);
-		st.setString(2, classNum);
-		st.setString(3, subject.getCd());
-		st.setString(4, school.getCd());
+		st=con.prepareStatement(baseSql);
+
+		st.setInt(1,entYear);
+		st.setString(2,classNum);
+		st.setString(3,subject.getCd());
+		st.setString(4,school.getCd());
 		
-		//sql実行
 		ResultSet rs=st.executeQuery();
 		list=postFilter(rs);
 
 		st.close();
 		con.close();
 		
-		//検索結果を返す
 		return list;
 	}
-}
-		
+}	
