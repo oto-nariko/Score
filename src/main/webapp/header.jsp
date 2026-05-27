@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-	<meta charset="UTF-8"
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/main.css">
 </head>
 

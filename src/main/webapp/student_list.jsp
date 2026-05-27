@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
+<main class="content">
 
 <h2>学生管理</h2>
 
@@ -64,6 +65,8 @@
 <c:if test="${empty students}">
 	<p>学生情報が存在しません</p>
 </c:if>
+</main>
+</div>
 
 </body>
 <%@include file="../../footer.jsp" %>

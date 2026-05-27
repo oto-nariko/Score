@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
-<main>
+<main class="content">
 <h2>科目情報変更</h2>
 	<form action="SubjectUpdateExacute.action" method="post">
 		<label>科目コード</label><br>
@@ -19,10 +19,11 @@
             <span style="color: red;">${errors.name}</span><br>
         </c:if>
         
-		<input type="submit" value="変更">
+		<input type="submit" value="変更" style="margin-top: 20px;">
 	</form>	
 	<a href="SubjectList.action">戻る</a>
 </main>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
