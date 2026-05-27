@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.subject-table {
+    width: 100%;               /* 💡 横幅いっぱいに広げる */
+    border-collapse: collapse; /* 枠線を1本にまとめる（必須） */
+    margin-top: 20px;          /* 上との隙間 */
+}
+
+/* ヘッダー（科目コード、科目名など）の設定 */
+.subject-table th {
+    text-align: left;          /* 文字を左寄せ */
+    padding: 12px;             /* セルの中の余白 */
+    font-weight: bold;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6; /* 下側に少し太めの線を入れる */
+}
+
+/* データの行（各科目）の設定 */
+.subject-table td {
+    padding: 12px;             /* セルの中の余白（ギューギューにしない） */
+    color: #212529;
+    border-bottom: 1px solid #dee2e6; /* 💡 横線だけを薄く入れる */
+    vertical-align: middle;    /* 文字を上下の真ん中に配置 */
+}
+
+/* 操作リンク（変更・削除）の文字を少し小さく、スマートに */
+.subject-table td a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 15px;        /* 変更と削除の間の隙間 */
+}
+
+.subject-table td a:hover {
+    text-decoration: underline; /* マウスを乗せたら下線をつける */
+}
