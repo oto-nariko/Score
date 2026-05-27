@@ -4,8 +4,8 @@ import java.util.Map;
 
 public class TestListSubject {
 	private int entYear;
-	private String studentNo;
-	private String studentName;
+	private String no;
+	private String name;
 	private String classNum;
 	private Map<Integer,Integer> points;
 	
@@ -16,17 +16,17 @@ public class TestListSubject {
 	public void setEntYear(int entYear) {
 		this.entYear=entYear;
 	}
-	public String getStudentNo() {
-		return studentNo;
+	public String getNo() {
+		return no;
 	}
-	public void setStudentNo(String studentNo) {
-		this.studentNo=studentNo;
+	public void setStudentNo(String No) {
+		this.no=no;
 	}
-	public String getStudentName() {
-		return studentName;
+	public String getName() {
+		return name;
 	}
-	public void setStudentName(String studentName) {
-		this.studentName=studentName;
+	public void setStudentName(String name) {
+		this.name=name;
 	}
 	public String getClassNum() {
 		return classNum;

@@ -18,10 +18,10 @@
 	
 	<c:forEach var="student" items="${list}">
 	<tr>
-		<td>{student.entYear}</td>
-		<td>{student.classNum}</td>
-		<td>{student.no}</td>
-		<td>{student.name}</td>
+		<td>${student.entYear}</td>
+		<td>${student.classNum}</td>
+		<td>${student.no}</td>
+		<td>${student.name}</td>
 		
 		<td>
 			<c:choose>

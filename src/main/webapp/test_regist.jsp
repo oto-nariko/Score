@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
@@ -7,29 +8,37 @@
 <%@include file="../../sidebar.jsp" %>
 <main>
 <h2>成績管理</h2>
+
+<c:if test="${not empty errors}">
+	<p>${errors}</p>
+</c:if>
+
 <form action="TestRegist.action" method="post">
 	<label>入学年度</label>
 		<select name="f1">
 			<option value="">--------</option>
-			<c:forEach var="year" items="${ent_year_set}">
-				<option value="${year}">${year}</option>
+			<c:forEach var="year" begin="2020" end="2035">
+				<option value="${year}"${f1 == year ? 'selected' : ''}>${year}</option>
 			</c:forEach>  
 		</select>
+		
 	<label>クラス</label>
 		<select name="f2">
 			<option value="">--------</option>
-			<c:forEach var="v" items="${class_num_set}">
-        		<option value="${v}">${v}</option>
+			<c:forEach var="num1" items="${class_list}">
+        		<option value="${num1}"${f2 == num1 ? 'selected' : ''}>${num1}</option>
     		</c:forEach>
 		</select>
+		
 	<label>科目</label>
 		<select name="f3">
 			<option value="">--------</option>
-			<c:forEach var="subject" items="${subjects}">
+			<c:forEach var="subject" items="${subject_list}">
         		<%-- Subject Beanのフィールド名（cd, name）に合わせて表示 --%>
-        		<option value="${subject.cd}">${subject.name}</option>
+        		<option value="${subject.cd}">${f3 == subject.cd ? 'selected' : ''}>${subject.name}</option>
     		</c:forEach>
 		</select>
+		
 	<label>回数</label>
 		<select name="f4">
 			<option value="">--------</option>
@@ -38,9 +47,9 @@
             </c:forEach>
 		</select>
 		
-		
+	
 	<input type="submit" value="検索" class="btn-search">	
-
+</form>
 
 <div><label>科目：${subject_name}（${f4}回目）</label></div>
 <form action="TestRegistExecute.action" method="post">
@@ -57,14 +66,15 @@
 		<tbody>
 			<c:forEach var="student" items="${students}">
 				<tr>
-					<td>${student.entYear}</td>
-					<td>${student.classNum}</td>
-					<td>${student.no}</td>
-					<td>${student.name}</td>
-					<td><input type="number" name="point_${student.no}" value="" min="0" max="100"></td>
-					<input type="hidden" name="regist" value="${student.no}">
+					<td>${test.student.entYear}</td>
+					<td>${test.student.classNum}</td>
+					<td>${test.student.no}</td>
+					<td>${test.student.name}</td>
+					<td><input type="number" name="point_${test.student.no}" value="" min="0" max="100"></td>
+					<input type="hidden" name="regist" value="${test.student.no}">
 				</tr>
-		
+			</c:forEach>
+		</tbody>
 	</table>
 	<input type="hidden" name="count" value="${f4}">
             <input type="hidden" name="subject" value="${f3}">
