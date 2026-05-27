@@ -55,7 +55,7 @@ public class TestListSubjectExecuteAction extends Action {
 			Subject subject=subDao.get(subjectCd,teacher.getSchool());
 
 			tests=tlsDao.filter(entYear,classNum,subject,teacher.getSchool());
-
+			
 			if (tests==null || tests.size()==0){
 				req.setAttribute("error","学生情報が存在しませんでした");
 				}
