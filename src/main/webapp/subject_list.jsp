@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/subject.css">
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">

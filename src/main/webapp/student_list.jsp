@@ -9,7 +9,7 @@
 
 <h2>学生管理</h2>
 
-
+<a href="StudentCreate.action">新規登録</a>
 
 <form action="StudentList.action" method="get">
 	<label>入学年度</label>
@@ -33,8 +33,12 @@
 	
 	<button type="submit">絞込み</button>
 </form>
+<c:if test="${not empty students}">
+	<div class="search-result-count" >
+		検索結果 ： ${students.size()}件
+	</div>
+</c:if>	
 
-<a href="StudentCreate.action">新規登録</a>
 
 <table border="1">
 	<tr>

@@ -55,6 +55,11 @@ main, .content {
 }
 main h2, .content h2 {
     margin-top: 0;
+	background-color: #f8f9fa; /* 薄いグレーの背景 */
+	color: #333333;            /* 濃いグレーの文字色 */
+	padding: 15px 20px;
+	margin-bottom: 20px;
+	
 }
 
 footer {
