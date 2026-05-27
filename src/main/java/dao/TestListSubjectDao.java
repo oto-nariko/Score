@@ -11,6 +11,8 @@ import bean.Subject;
 import bean.TestListSubject;
 
 public class TestListSubjectDao extends Dao {
+	
+	//共通のsql
 	private String baseSql=
 			"select t.*,s.name as student_name,s.ent_year as ent_year,s.class_num as class_num "
 			+ "from test t "
@@ -20,8 +22,10 @@ public class TestListSubjectDao extends Dao {
 			+"and t.subject_cd=? "
 			+"and t.school_cd=?";
 	
+	//ResultSetをリストに変換するメソッド
 	public List<TestListSubject> postFilter(
 			ResultSet rSet)throws Exception{
+		//検索結果を入れるリスト
 		List<TestListSubject> list=new ArrayList<>();
 
 		while (rSet.next()){
@@ -40,6 +44,7 @@ public class TestListSubjectDao extends Dao {
 		return list;
 	}
 
+	//入学年度、クラス、科目、、学校コードで絞り込むメソッド
 	public List<TestListSubject> filter(
 			int entYear,
 			String classNum,
@@ -47,7 +52,9 @@ public class TestListSubjectDao extends Dao {
 			School school
 			)throws Exception{
 		
+		//検索結果を入れるリスト
 		List<TestListSubject> list=new ArrayList<>();
+		//データベース接続
 		Connection con=getConnection();
 		
 		PreparedStatement st;
@@ -58,12 +65,14 @@ public class TestListSubjectDao extends Dao {
 		st.setString(3,subject.getCd());
 		st.setString(4,school.getCd());
 		
+		//sql実行
 		ResultSet rs=st.executeQuery();
 		list=postFilter(rs);
 
 		st.close();
 		con.close();
 		
+		//検索結果を返す
 		return list;
 	}
 }	
