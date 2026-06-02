@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 .subject-table {
-    width: 100%;               /* 💡 横幅いっぱいに広げる */
-    border-collapse: collapse; /* 枠線を1本にまとめる（必須） */
+    width: 100%;               /* 横幅いっぱいに広げる */
+    border-collapse: collapse; /* 枠線を1本にまとめる */
     margin-top: 20px;          /* 上との隙間 */
 }
 
@@ -11,19 +11,18 @@
     text-align: left;          /* 文字を左寄せ */
     padding: 12px;             /* セルの中の余白 */
     font-weight: bold;
-    color: #495057;
     border-bottom: 2px solid #dee2e6; /* 下側に少し太めの線を入れる */
 }
 
 /* データの行（各科目）の設定 */
 .subject-table td {
-    padding: 12px;             /* セルの中の余白（ギューギューにしない） */
+    padding: 12px;             /* セルの中の余白*/
     color: #212529;
-    border-bottom: 1px solid #dee2e6; /* 💡 横線だけを薄く入れる */
+    border-bottom: 1px solid #dee2e6; /*横線だけを薄く入れる */
     vertical-align: middle;    /* 文字を上下の真ん中に配置 */
 }
 
-/* 操作リンク（変更・削除）の文字を少し小さく、スマートに */
+/* 操作リンク（変更・削除） */
 .subject-table td a {
     color: #007bff;
     text-decoration: none;

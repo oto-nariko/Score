@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
-<main>
+<main class="content">
 <h2>成績参照</h2>
 <!-- エラー表示エリア -->
 	<c:if test="${not empty errors}">
@@ -68,6 +68,7 @@
  
 <p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
 </main>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>

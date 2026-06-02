@@ -5,8 +5,9 @@
 <html>
 <%@include file="../../header.jsp" %>
 <body>
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
-<main>
+<main class="content">
 <h2>成績管理</h2>
 
 <c:if test="${not empty errors}">
@@ -85,6 +86,7 @@
 </form>
 
 </main>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>
