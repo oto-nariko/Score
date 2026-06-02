@@ -32,4 +32,5 @@ public class TestListStudent {
 		this.point=point;
 	}
 	
+	
 }

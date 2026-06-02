@@ -12,6 +12,7 @@ import bean.Subject;
 import bean.Teacher;
 import bean.TestListStudent;
 import dao.ClassNumDao;
+import dao.StudentDao;
 import dao.SubjectDao;
 import dao.TestListStudentDao;
 import tool.Action;
@@ -38,6 +39,7 @@ public class TestListStudentExecuteAction extends Action {
 		ClassNumDao cDao=new ClassNumDao();
 		SubjectDao subDao=new SubjectDao();
 		TestListStudentDao tlsDao=new TestListStudentDao();
+		StudentDao stuDao=new StudentDao();
 
 		List<String> classList=cDao.filter(teacher.getSchool());
 		List<Subject> subjectList=subDao.filter(teacher.getSchool());
@@ -46,11 +48,10 @@ public class TestListStudentExecuteAction extends Action {
 		if (studentNo == null || studentNo.isEmpty()) {
 			req.setAttribute("error", "このフィールドを入力してください。");
 			} else {
-				Student student=new Student();
-				student.setNo(studentNo);
-				student.setSchool(teacher.getSchool());
+				Student student = stuDao.get(studentNo);
 
-				tests= tlsDao.filter(student);
+				tests = tlsDao.filter(student);
+				req.setAttribute("student", student);
 				if (tests == null || tests.size() == 0) {
 					req.setAttribute("error", "学生情報が存在しませんでした");
 					}

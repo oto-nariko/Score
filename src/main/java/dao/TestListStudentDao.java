@@ -12,11 +12,12 @@ import bean.TestListStudent;
 public class TestListStudentDao extends Dao{
 	
 	//共通sql
-	private String baseSql= 
-			"select t.*,s.name as subject_name "
-			+"from test t "
-			+"join subject s on t.subject_cd=s.cd and t.school_cd=s.school_cd "
-			+"where t.student_no=?";
+	private String baseSql =
+	        "select t.*, sub.name as subject_name "
+	        + "from test t "
+	        + "left join subject sub "
+	        + "on t.subject_cd = sub.cd and t.school_cd = sub.school_cd "
+	        + "where t.student_no = ?";
 	
 	//ResultSetをlistに変換するメソッド
 	public List<TestListStudent> postFIlter(
@@ -29,10 +30,10 @@ public class TestListStudentDao extends Dao{
 		while (rSet.next()){
 			TestListStudent test=new TestListStudent();
 			
-			test.setSubjectCd(rSet.getString("subject_cd"));
 			test.setSubjectName(rSet.getString("subject_name"));
-			test.setNum(rSet.getInt("no"));
-			test.setPoint(rSet.getInt("point"));
+			test.setSubjectCd(rSet.getString("SUBJECT_CD"));
+			test.setNum(rSet.getInt("NO"));
+			test.setPoint(rSet.getInt("POINT"));
 			
 			list.add(test);
 		}
