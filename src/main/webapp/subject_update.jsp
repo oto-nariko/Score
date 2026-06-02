@@ -13,10 +13,10 @@
 		<strong>${cd}</strong><br>
 		<input type="hidden" name="cd" value="${cd}"><br>
 		<label>科目名</label><br>
-		<input type="text" name="name" value="${name}" maxlength="20" required><br>
+		<input type="text" name="name" value="${name}" maxlength="20"><br>
 		
 		<c:if test="${not empty errors.name}">
-            <span style="color: red;">${errors.name}</span><br>
+            <span style="color:#ff9900;">${errors.name}</span><br>
         </c:if>
         
 		<input type="submit" value="変更" style="margin-top: 20px;">

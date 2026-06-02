@@ -39,12 +39,20 @@ public class SubjectUpdateExacuteAction extends Action {
 			errors.put("name", "科目名を入力してください");
 			
 		}
+		if(errors.isEmpty()) {
+			Subject existSubject=sDao.get(cd, school);
+			if(existSubject==null) {
+				errors.put("name","科目データが存在していません");			
+			}
+		}
+		
 		if(!errors.isEmpty()) {
 			req.setAttribute("errors", errors);
 			req.setAttribute("cd", cd);
 			req.setAttribute("name", name);
 			req.getRequestDispatcher("/subject_update.jsp").forward(req, res);
-		}else {
+		}
+		else {
 			Subject subject=new Subject();
 			subject.setCd(cd);
 			subject.setName(name);
