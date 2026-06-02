@@ -26,6 +26,12 @@ public class StudentListAction extends Action {
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
 		
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			return;
+		}
+		
 		//検索条件の取得
 		String entYearStr = req.getParameter("f1"); //入学年度
 		String classNum = req.getParameter("f2"); //クラス番号

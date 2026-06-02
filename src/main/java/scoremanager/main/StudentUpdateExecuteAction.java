@@ -17,6 +17,12 @@ public class StudentUpdateExecuteAction extends Action {
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher) session.getAttribute("user");
 		
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			return;
+		}
+		
 		//jspから値を受け取る
 		int entYear = Integer.parseInt(req.getParameter("ent_year"));
 		String no = req.getParameter("no");
