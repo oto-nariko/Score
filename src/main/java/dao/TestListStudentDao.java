@@ -40,7 +40,7 @@ public class TestListStudentDao extends Dao{
 		return list;
 	}
 	
-	//学籍番号で絞込みするメソッド
+	//学籍番号で絞込みするメソッド 
 	public List<TestListStudent> filter(
 			Student student
 			)throws Exception{
