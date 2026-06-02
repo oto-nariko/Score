@@ -41,7 +41,7 @@ public class LoginExecuteAction extends Action {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			req.getRequestDispatcher("error.jsp").forward(req, res);
+			req.getRequestDispatcher("/error.jsp").forward(req, res);
 		}
 
 	}
