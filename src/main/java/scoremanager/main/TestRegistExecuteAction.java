@@ -33,6 +33,8 @@ public class TestRegistExecuteAction extends Action {
 		Subject subject = new Subject();
 		subject.setCd(subjectCd);
 		
+		boolean hasError = false;
+		
 		if (studentNoArray != null) {
 			for (String studentNo : studentNoArray) {
 				
@@ -42,6 +44,10 @@ public class TestRegistExecuteAction extends Action {
 				
 				if (pointStr != null && !pointStr.equals("")) {
 					point = Integer.parseInt(pointStr);
+					
+					if (point < 0 || point > 100) {
+						hasError = true;
+					}
 				}
 				
 				// Student Bean を作成
@@ -60,6 +66,21 @@ public class TestRegistExecuteAction extends Action {
 				// リストに追加
 				testList.add(test);
 			}
+		}
+		
+		if (hasError) {
+			req.setAttribute("errors", "0~100の範囲で入力してください");
+			
+			TestDao tDao = new TestDao();
+			
+			req.setAttribute("students", testList);
+			
+			req.setAttribute("f2", classNum);
+			req.setAttribute("f3", subjectCd);
+			req.setAttribute("f4", count);
+			
+			req.getRequestDispatcher("/test_regist.jsp").forward(req, res);
+			return;
 		}
 		
 		TestDao tDao = new TestDao();
