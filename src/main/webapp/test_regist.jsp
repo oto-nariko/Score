@@ -35,7 +35,7 @@
 			<option value="">--------</option>
 			<c:forEach var="subject" items="${subject_list}">
         		<%-- Subject Beanのフィールド名（cd, name）に合わせて表示 --%>
-        		<option value="${subject.cd}">${f3 == subject.cd ? 'selected' : ''}>${subject.name}</option>
+        		<option value="${subject.cd}"${f3 == subject.cd ? 'selected' : ''}>${subject.name}</option>
     		</c:forEach>
 		</select>
 		
@@ -64,22 +64,24 @@
 			</tr>
 		</thead>	
 		<tbody>
-			<c:forEach var="student" items="${students}">
+			<c:forEach var="test" items="${students}">
 				<tr>
 					<td>${test.student.entYear}</td>
 					<td>${test.student.classNum}</td>
 					<td>${test.student.no}</td>
 					<td>${test.student.name}</td>
-					<td><input type="number" name="point_${test.student.no}" value="" min="0" max="100"></td>
-					<input type="hidden" name="regist" value="${test.student.no}">
+					<td>
+						<input type="number" name="point_${test.student.no}" value="${test.point}" min="0" max="100">
+						<input type="hidden" name="regist" value="${test.student.no}">
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<input type="hidden" name="count" value="${f4}">
-            <input type="hidden" name="subject" value="${f3}">
-
-<input type="submit" value="登録して終了"class="btn-sbmit" >
+    <input type="hidden" name="subject" value="${f3}">
+    <input type="hidden" name="classNum" value="${f2}">
+	<input type="submit" value="登録して終了"class="btn-sbmit" >
 </form>
 
 </main>
