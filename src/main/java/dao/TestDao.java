@@ -112,27 +112,46 @@ public class TestDao extends Dao {
 	 * 1人分の成績データを保存するメソッド
 	 */
 	public boolean save(Test test, Connection connection) throws Exception {
+		PreparedStatement stUpdate = null;
 		PreparedStatement stInsert = null;
 		boolean result = false;
 		
 		try {
-			//新しいデータを入れる
-			String insertSql = "insert into test (student_no, subject_cd, no, point, school_cd, class_num) values (?, ?, ?, ?, ?, ?)";
-			stInsert = connection.prepareStatement(insertSql);
-			stInsert.setString(1, test.getStudent().getNo());
-			stInsert.setString(2, test.getSubject().getCd());
-			stInsert.setInt(3, test.getNo());
-			stInsert.setInt(4, test.getPoint());
-			stInsert.setString(5, test.getSchool().getCd());
-			stInsert.setString(6, test.getStudent().getClassNum());
+			//まずはUPDATEを試みる
+			String updateSql = "update test set point = ? where student_no = ? and subject_cd = ? and no = ? and school_cd = ?";
+			stUpdate = connection.prepareStatement(updateSql);
+			stUpdate.setInt(1, test.getPoint());
+			stUpdate.setString(2, test.getStudent().getNo());
+			stUpdate.setString(3, test.getSubject().getCd());
+			stUpdate.setInt(4, test.getNo());
+			stUpdate.setString(5, test.getSchool().getCd());
 			
-			int line = stInsert.executeUpdate();
-			if (line > 0) {
+			int rowCount = stUpdate.executeUpdate();
+			
+			//もしUPDATEされた件数が0件なら、まだデータがない人なのでINSERTする
+			if (rowCount == 0) {
+				String insertSql = "insert into test (student_no, subject_cd, no, point, school_cd, class_num) values (?, ?, ?, ?, ?, ?)";
+				stInsert = connection.prepareStatement(insertSql);
+				stInsert.setString(1, test.getStudent().getNo());
+				stInsert.setString(2, test.getSubject().getCd());
+				stInsert.setInt(3, test.getNo());
+				stInsert.setInt(4, test.getPoint());
+				stInsert.setString(5, test.getSchool().getCd());
+				stInsert.setString(6, test.getStudent().getClassNum()); // クラス番号も完璧！
+				
+				int line = stInsert.executeUpdate();
+				if (line > 0) {
+					result = true;
+				}
+			} else {
+				// UPDATEが成功した場合
 				result = true;
 			}
+			
 		} catch (Exception e) {
 			throw e;
 		} finally {
+			if (stUpdate != null) stUpdate.close();
 			if (stInsert != null) stInsert.close();
 		}
 		return result;
