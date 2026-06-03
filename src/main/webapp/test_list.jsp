@@ -8,12 +8,7 @@
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
 <h2>成績参照</h2>
-<!-- エラー表示エリア -->
-	<c:if test="${not empty error}">
-    <div class="error-msg">
-        <p>${error}</p>
-    </div>
-</c:if>
+
 <section class="search-block">
 	<p><strong>科目情報</strong></p>
 	<form action="TestListSubjectExecute.action" method="post">
@@ -47,6 +42,13 @@
         <input type="submit" value="検索" class="btn-search">    
 	</form>
 </section>
+
+	<!-- エラー表示エリア -->
+	<c:if test="${not empty error}">
+    <div class="error-msg">
+        <p>${error}</p>
+    </div>
+	</c:if>
 <br>
 <!-- 学生情報 -->
 <section>

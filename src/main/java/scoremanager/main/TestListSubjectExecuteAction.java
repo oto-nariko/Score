@@ -70,9 +70,22 @@ public class TestListSubjectExecuteAction extends Action {
 		tests=tlsDao.filter(entYear,classNum,subject,teacher.getSchool());
 
 		if (tests==null || tests.size()==0){
-		    req.setAttribute("error","学生情報が存在しませんでした");
-		}
 
+		    req.setAttribute("error","学生情報が存在しませんでした");
+
+		    req.setAttribute("f1",entYearStr);
+		    req.setAttribute("f2",classNum);
+		    req.setAttribute("f3",subjectCd);
+		    req.setAttribute("f4",numStr);
+
+		    req.setAttribute("ent_year_set",entYearSet);
+		    req.setAttribute("class_num_set",classList);
+		    req.setAttribute("subjects",subjectList);
+
+		    req.getRequestDispatcher("/test_list.jsp").forward(req, res);
+		    return;
+		}
+		
 		req.setAttribute("subject",subject);
 
 		req.setAttribute("f1",entYearStr);
