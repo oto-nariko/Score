@@ -6,7 +6,7 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
-<div>科目</div>
+<div>科目：${subject.name }</div>
 <table>
 	<tr>
 		<th>入学年度</th>
