@@ -38,13 +38,16 @@ public class TestDeleteAction extends Action {
 		int num = Integer.parseInt(count);
 		School school=teacher.getSchool();
 		
+		//学生情報と科目情報をセット
 		Student student = new Student();
 		student.setNo(studentNo);
 		Subject subject = new Subject();
 		subject.setCd(subjectCd);
 		
+		//テスト情報を取得
 		Test test = tDao.get(student, subject, school, num);
 		
+		//箱詰めしてフォワード
 		req.setAttribute("test", test);
 		req.getRequestDispatcher("/test_delete.jsp").forward(req, res);
 	}
