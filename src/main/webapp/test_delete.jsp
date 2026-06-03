@@ -33,7 +33,7 @@
 	
 	<p>上記の成績を削除してもよろしいですか</p>
 	
-	<form action="TestDelete.action" method="post">
+	<form action="TestDeleteExecute.action" method="post">
 		<input type="hidden" name="student_no" value="${test.student.no}">
 		<input type="hidden" name="subject_cd" value="${f3}">
 		<input type="hidden" name="no" value="${f4}">
