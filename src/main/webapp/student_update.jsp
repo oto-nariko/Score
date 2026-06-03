@@ -14,10 +14,10 @@
 <form action="StudentUpdateExecute.action" method="post">
 
 	<label>入学年度</label>
-	<input type="text" name="ent_year" value="${ent_year }" readonly ><br>
+	<span>${ent_year }</span><br>
 
 	<label>学生番号</label>
-	<input type="text" name="no" value="${no }" readonly>
+	<span>${no }</span><br>
 
 	<label>氏名</label>
 	<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required><br>

@@ -3,14 +3,11 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<div class="wrapper">
+<body>
+<div class=wrapper>
 <%@include file="../../sidebar.jsp" %>
-<main class="content">
-	<h2>成績管理</h2>
-	<p>登録が完了しました</p>
-	<a href="TestRegist.action">戻る</a>
-	<a href="TestList.action">成績参照</a>
-
+<main class=content>
+<p>エラーが発生しました</p>
 </main>
 </div>
 </body>

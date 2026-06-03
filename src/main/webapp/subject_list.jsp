@@ -3,28 +3,28 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <%@include file="../../header.jsp" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/subject.css">
+<link rel="stylesheet" href="../../subject.css">
 <div class="wrapper">
-<%@include file="../../sidebar.jsp" %>
+	<%@include file="../../sidebar.jsp" %>
 <main class="content">
-<h2>科目管理</h2>
-<a href="SubjectCreate.action">新規登録</a>
-<table>
-	<tr>
-		<th>科目コード</th>
-		<th>科目名</th>
-		<th></th>
-		<th></th>
-	</tr>
-	<c:forEach var="subject" items="${subjects}">
-	<tr>
-		<td>${subject.cd}</td>
-		<td>${subject.name}</td>
-		<td><a href="SubjectUpdate.action?cd=${subject.cd}">変更</a></td>
-		<td><a href="SubjectDelete.action?cd=${subject.cd}">削除</a></td>
-	</tr>
-	</c:forEach>
-</table>
+	<h2>科目管理</h2>
+	<a href="SubjectCreate.action">新規登録</a>
+	<table class="subject-table">
+		<tr>
+			<th>科目コード</th>
+			<th>科目名</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<c:forEach var="subject" items="${subjects}">
+		<tr>
+			<td>${subject.cd}</td>
+			<td>${subject.name}</td>
+			<td><a href="SubjectUpdate.action?cd=${subject.cd}">変更</a></td>
+			<td><a href="SubjectDelete.action?cd=${subject.cd}">削除</a></td>
+		</tr>
+		</c:forEach>
+	</table>
 </main>
 </div>
 

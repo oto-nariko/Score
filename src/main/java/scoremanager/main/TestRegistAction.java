@@ -6,28 +6,18 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-<<<<<<< HEAD
-import bean.Teacher;
-=======
 import bean.Subject;
 import bean.Teacher;
 import bean.Test;
 import dao.ClassNumDao;
 import dao.SubjectDao;
 import dao.TestDao;
->>>>>>> branch 'master' of https://github.com/oto-nariko/Score
 import tool.Action;
 
 public class TestRegistAction extends Action {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-<<<<<<< HEAD
-		HttpSession session = req.getSession();
-		Teacher teacher = (Teacher)session.getAttribute("user");
-		
-		
-=======
 		//セッションからユーザーデータを取得
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
@@ -108,7 +98,6 @@ public class TestRegistAction extends Action {
 		
 		//フォワード
 		req.getRequestDispatcher("/test_regist.jsp").forward(req, res);
->>>>>>> branch 'master' of https://github.com/oto-nariko/Score
 	}
 
 }

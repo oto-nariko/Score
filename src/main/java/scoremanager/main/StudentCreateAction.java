@@ -18,6 +18,12 @@ public class StudentCreateAction extends Action {
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
 		
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			return;
+		}
+		
 		//DBから取得
 		ClassNumDao cDao = new ClassNumDao();
 		List<String> classList = cDao.filter(teacher.getSchool());
