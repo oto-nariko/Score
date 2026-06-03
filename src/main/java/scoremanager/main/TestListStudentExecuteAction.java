@@ -48,7 +48,7 @@ public class TestListStudentExecuteAction extends Action {
 		if (studentNo == null || studentNo.isEmpty()) {
 			req.setAttribute("error", "このフィールドを入力してください。");
 			} else {
-				Student student = stuDao.get(studentNo);
+				Student student =stuDao.get(studentNo);
 
 				tests = tlsDao.filter(student);
 				req.setAttribute("student", student);

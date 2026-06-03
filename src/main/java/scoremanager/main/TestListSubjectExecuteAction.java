@@ -25,7 +25,7 @@ public class TestListSubjectExecuteAction extends Action {
 		String entYearStr=req.getParameter("f1");
 		String classNum=req.getParameter("f2");
 		String subjectCd=req.getParameter("f3");
-		String numStr = req.getParameter("f4");
+		String numStr =req.getParameter("f4");
 
 
 		int entYear=0;
@@ -45,22 +45,35 @@ public class TestListSubjectExecuteAction extends Action {
 		for (int i=year-10;i<=year; i++) {
 			entYearSet.add(i);
 		}
-
+		
 		if (entYear==0
-				|| classNum==null || classNum.equals("")
-				|| subjectCd==null || subjectCd.equals("")){
-			req.setAttribute("error","入学年度とクラスと科目を選択してください");
-			}else{
+		        || classNum==null || classNum.equals("")
+		        || subjectCd==null || subjectCd.equals("")) {
 
-			Subject subject=subDao.get(subjectCd,teacher.getSchool());
+		    req.setAttribute("error","入学年度とクラスと科目を選択してください");
 
-			tests=tlsDao.filter(entYear,classNum,subject,teacher.getSchool());
-			
-			if (tests==null || tests.size()==0){
-				req.setAttribute("error","学生情報が存在しませんでした");
-				}
-			req.setAttribute("subject",subject);
-			}
+		    req.setAttribute("f1",entYearStr);
+		    req.setAttribute("f2",classNum);
+		    req.setAttribute("f3",subjectCd);
+		    req.setAttribute("f4",numStr);
+
+		    req.setAttribute("ent_year_set",entYearSet);
+		    req.setAttribute("class_num_set",classList);
+		    req.setAttribute("subjects",subjectList);
+
+		    req.getRequestDispatcher("/test_list.jsp").forward(req, res);
+		    return;
+		}
+
+		Subject subject=subDao.get(subjectCd,teacher.getSchool());
+
+		tests=tlsDao.filter(entYear,classNum,subject,teacher.getSchool());
+
+		if (tests==null || tests.size()==0){
+		    req.setAttribute("error","学生情報が存在しませんでした");
+		}
+
+		req.setAttribute("subject",subject);
 
 		req.setAttribute("f1",entYearStr);
 		req.setAttribute("f2",classNum);

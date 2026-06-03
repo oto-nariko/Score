@@ -9,13 +9,11 @@
 <main class="content">
 <h2>成績参照</h2>
 <!-- エラー表示エリア -->
-	<c:if test="${not empty errors}">
-        <div class="error-msg">
-            <c:forEach var="error" items="${errors}">
-                <p>${error.value}</p>
-            </c:forEach>
-        </div>
-   	</c:if>
+	<c:if test="${not empty error}">
+    <div class="error-msg">
+        <p>${error}</p>
+    </div>
+</c:if>
 <section class="search-block">
 	<p><strong>科目情報</strong></p>
 	<form action="TestListSubjectExecute.action" method="post">
