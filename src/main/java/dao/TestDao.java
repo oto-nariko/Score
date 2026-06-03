@@ -207,7 +207,34 @@ public class TestDao extends Dao {
 		return result;
 	}
 	
-	
+	/*
+	 * 成績データを消去する
+	 */
+	public boolean delete(Test test) throws Exception {
+		int count = 0;
+		
+		Connection con = getConnection();
+		PreparedStatement st = null;
+		
+		try {
+			String sql = "delete from test where student_no = ? and subject_cd = ? and no = ? and school_cd = ?";
+			st = con.prepareStatement(sql);
+			
+			st.setString(1, test.getStudent().getNo());
+			st.setString(2, test.getSubject().getCd());
+			st.setInt(3, test.getNo());
+			st.setString(4, test.getSchool().getCd());
+			
+			count = st.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (st != null) st.close();
+			if (con != null) con.close();
+		}
+		
+		return count > 0;
+	}
 
 }
 
