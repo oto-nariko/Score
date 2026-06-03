@@ -61,7 +61,8 @@
 				<th>クラス</th>
 				<th>学生番号</th>
 				<th>氏名</th>
-				<th>点数</th>		
+				<th>点数</th>	
+				<th>操作</th>	
 			</tr>
 		</thead>	
 		<tbody>
@@ -74,6 +75,9 @@
 					<td>
 						<input type="number" name="point_${test.student.no}" value="${test.point}" min="0" max="100">
 						<input type="hidden" name="regist" value="${test.student.no}">
+					</td>
+					<td>
+						<a href="TestDelete.action?student_no=${test.student.no}&f2=${f2}&f3=${f3}&f4=${f4}" class="btn-delete">削除</a>
 					</td>
 				</tr>
 			</c:forEach>
