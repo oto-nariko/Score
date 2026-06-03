@@ -59,14 +59,23 @@
 		
 		<label>学生番号</label>
 		<input type="text" name="f4" value="${f4}" placeholder="学生番号を入力してください" maxlength="10">
+		
+		<c:if test="${not empty studentError}">
+    	<div class="error-msg">${studentError }</div>
+		</c:if>
 		<!-- 検索ボタン -->
 		<input type="submit" value="検索">
 	</form>
 </section>
+<c:if test="${not empty student}">
+    <p>氏名：${student.name}（${student.no}）</p>
+</c:if>
+<c:if test="${not empty studentResultError}">
+    <p>${studentResultError}</p>
+</c:if>
 <hr>
           
- 
-<p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
+ <p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
 </main>
 </div>
 </body>

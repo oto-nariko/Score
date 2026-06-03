@@ -44,18 +44,37 @@ public class TestListStudentExecuteAction extends Action {
 		List<String> classList=cDao.filter(teacher.getSchool());
 		List<Subject> subjectList=subDao.filter(teacher.getSchool());
 		List<TestListStudent> tests=new ArrayList<>();
-
+		
 		if (studentNo == null || studentNo.isEmpty()) {
-			req.setAttribute("error", "このフィールドを入力してください。");
-			} else {
-				Student student =stuDao.get(studentNo);
+		    req.setAttribute("studentError", "このフィールドを入力してください。");
 
-				tests = tlsDao.filter(student);
-				req.setAttribute("student", student);
-				if (tests == null || tests.size() == 0) {
-					req.setAttribute("error", "学生情報が存在しませんでした");
-					}
-				}
+		    req.setAttribute("f4", studentNo);
+		    req.setAttribute("class_num_set", classList);
+		    req.setAttribute("subjects", subjectList);
+
+		    req.getRequestDispatcher("/test_list.jsp").forward(req, res);
+		    return;
+		}
+		
+		Student student=stuDao.get(studentNo);
+
+		if (student == null) {
+		    req.setAttribute("studentError", "学生情報が存在しませんでした");
+		} else {
+		    tests=tlsDao.filter(student);
+		    req.setAttribute("student", student);
+
+		    if (tests == null || tests.size() == 0) {
+		        req.setAttribute("studentResultError", "成績情報が存在しませんでした");
+		    }
+		}
+
+		req.setAttribute("f4", studentNo);
+		req.setAttribute("class_num_set", classList);
+		req.setAttribute("subjects", subjectList);
+		req.setAttribute("list", tests);
+
+		req.getRequestDispatcher("/test_list.jsp").forward(req, res);
 
 		req.setAttribute("f4", studentNo);
 		req.setAttribute("class_num_set", classList);
