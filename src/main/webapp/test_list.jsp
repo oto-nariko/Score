@@ -36,7 +36,7 @@
             <option value="">--------</option>
             <c:forEach var="subject" items="${subjects}">
                 <option value="${subject.cd}" <c:if test="${subject.cd == f3}">selected</c:if>>${subject.name}</option>
-            </c:forEach><!-- 上のsubject.cdは変わるかも -->
+            </c:forEach>
         </select>
         <!-- 検索ボタン -->
         <input type="submit" value="検索" class="btn-search">    
