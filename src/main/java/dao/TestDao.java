@@ -22,9 +22,59 @@ public class TestDao extends Dao {
 		    where s.school_cd = ?
 		    """;
 	
-	public Test get(Student student, Subject subject, School school, int no) {
-			return null;
+	/*
+	 * student:学生情報
+	 * subject:教科
+	 * school:学校
+	 * no:受験回数
+	 * 
+	 * 複合キーから成績のデータを取得する
+	 */
+	public Test get(Student student, Subject subject, School school, int no) throws Exception {
+		Test test = null;
+		
+		// DBの用意
+		Connection con = getConnection();
+		PreparedStatement st = null;
+		ResultSet rSet = null;
+		
+		try {
+			// 主キーが一致する1件だけを引っ張ってくるSQL
+			String sql = "select point from test where student_no = ? and subject_cd = ? and no = ? and school_cd = ?";
+			st = con.prepareStatement(sql);
+			
+			st.setString(1, student.getNo());
+			st.setString(2, subject.getCd());
+			st.setInt(3, no);
+			st.setString(4, school.getCd());
+			
+			rSet = st.executeQuery();
+			
+			// データが存在した場合だけ、Testオブジェクトを作って中身をセットする
+			if (rSet.next()) {
+				test = new Test();
+				test.setStudent(student);
+				test.setSubject(subject);
+				test.setNo(no);
+				test.setSchool(school);
+				
+				int point = rSet.getInt("point");
+				if (rSet.wasNull()) {
+					test.setPoint(-1);
+				} else {
+					test.setPoint(point);
+				}
 			}
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (rSet != null) rSet.close();
+			if (st != null) st.close();
+			if (con != null) con.close();
+		}
+		
+		return test;
+	}
 	
 	public List<Test> postFilter(ResultSet rSet, School school) throws Exception {
 		List<Test> list = new ArrayList<>();
