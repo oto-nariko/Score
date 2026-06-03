@@ -66,18 +66,17 @@
 		<!-- 検索ボタン -->
 		<input type="submit" value="検索">
 	</form>
-</section>
-<c:if test="${not empty student}">
-    <p>氏名：${student.name}（${student.no}）</p>
-</c:if>
-<c:if test="${not empty studentResultError}">
-    <p>${studentResultError}</p>
-</c:if>
-<hr>
-          
- <p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
-</main>
-</div>
-</body>
+	</section>
+	<c:if test="${not empty student}">
+	<p>氏名：${student.name}（${student.no}）</p>
+	</c:if>
+	<c:if test="${not empty studentResultError}">
+	<p>${studentResultError}</p>
+	</c:if>
+	<hr>
+	<p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
+	</main>
+	</div>
+	</body>
 <%@include file="../../footer.jsp" %>
 </html>
