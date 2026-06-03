@@ -9,6 +9,7 @@
 <main class="content">
 	<h2>成績削除</h2>
 	
+	<div><label>科目：${subject_name}（${f4}回目）</label></div>
 	<table border="1">
 		<thead>
 			<tr>
@@ -32,10 +33,10 @@
 	
 	<p>上記の成績を削除してもよろしいですか</p>
 	
-	<form action="Testdelete.action" method="post">
-		<input type="hidden" name="regect" value="${student_no}">
-		<input type="hidden" name="subject" value="${f3}">
-		<input type="hidden" name="count" value="${f4}">
+	<form action="TestDelete.action" method="post">
+		<input type="hidden" name="student_no" value="${test.student.no}">
+		<input type="hidden" name="subject_cd" value="${f3}">
+		<input type="hidden" name="no" value="${f4}">
 		<input type="hidden" name="classNum" value="${f2}">
 		<input type="submit" value="削除" >
     </form>

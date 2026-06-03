@@ -62,7 +62,7 @@
 				<th>学生番号</th>
 				<th>氏名</th>
 				<th>点数</th>	
-				<th>操作</th>	
+				<th width="50">操作</th>	
 			</tr>
 		</thead>	
 		<tbody>
