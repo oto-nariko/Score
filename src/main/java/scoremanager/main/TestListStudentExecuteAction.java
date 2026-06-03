@@ -56,33 +56,34 @@ public class TestListStudentExecuteAction extends Action {
 		    return;
 		}
 		
-		Student student=stuDao.get(studentNo);
+		Student student = stuDao.get(studentNo);
 
 		if (student == null) {
 		    req.setAttribute("studentError", "学生情報が存在しませんでした");
-		} else {
-		    tests=tlsDao.filter(student);
-		    req.setAttribute("student", student);
 
-		    if (tests == null || tests.size() == 0) {
-		        req.setAttribute("studentResultError", "成績情報が存在しませんでした");
-		    }
+		    req.setAttribute("f4", studentNo);
+		    req.setAttribute("class_num_set", classList);
+		    req.setAttribute("subjects", subjectList);
+
+		    req.getRequestDispatcher("/test_list.jsp").forward(req, res);
+		    return;
 		}
 
-		req.setAttribute("f4", studentNo);
-		req.setAttribute("class_num_set", classList);
-		req.setAttribute("subjects", subjectList);
-		req.setAttribute("list", tests);
-
-		req.getRequestDispatcher("/test_list.jsp").forward(req, res);
+		tests = tlsDao.filter(student);
+		req.setAttribute("student", student);
 
 		req.setAttribute("f4", studentNo);
 		req.setAttribute("class_num_set", classList);
 		req.setAttribute("subjects", subjectList);
 		req.setAttribute("list", tests);
 
-		req.getRequestDispatcher("/test_list_student.jsp")
-		.forward(req, res);
+		if (tests == null || tests.size() == 0) {
+		    req.setAttribute("studentResultError", "成績情報が存在しませんでした");
+		    req.getRequestDispatcher("/test_list.jsp").forward(req, res);
+		    return;
+		}
+
+		req.getRequestDispatcher("/test_list_student.jsp").forward(req, res);
+		return;
 	}
-
 }
