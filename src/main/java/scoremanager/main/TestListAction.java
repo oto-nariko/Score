@@ -19,6 +19,12 @@ public class TestListAction extends Action {
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {  
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
+		
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			return;
+		}
 
 		ClassNumDao cDao=new ClassNumDao();
 		SubjectDao subDao=new SubjectDao();

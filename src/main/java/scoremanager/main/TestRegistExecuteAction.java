@@ -21,6 +21,13 @@ public class TestRegistExecuteAction extends Action {
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
+		
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			return;
+		}
+		
 		School school = teacher.getSchool();
 		
 		String subjectCd = req.getParameter("subject");
@@ -71,7 +78,6 @@ public class TestRegistExecuteAction extends Action {
 		if (hasError) {
 			req.setAttribute("errors", "0~100の範囲で入力してください");
 			
-			TestDao tDao = new TestDao();
 			
 			req.setAttribute("students", testList);
 			
