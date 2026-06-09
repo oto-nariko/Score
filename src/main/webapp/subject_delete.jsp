@@ -10,6 +10,8 @@
 	<h2>科目情報削除</h2>
 	<p>「${subject_name}(${subject_cd})」を削除してもよろしいですか</p>
 	<form action="SubjectDeleteExecute.action" method="post">
+	
+	<!--削除する対象を特定するために、科目コードと科目名を裏でサーブレットに渡す  -->
 		<input type="hidden" name="subject_cd" value="${subject_cd}">
 		<input type="hidden" name="subject_name" value="${subject_name}">
 		<input type="submit" value="削除" >

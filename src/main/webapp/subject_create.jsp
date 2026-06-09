@@ -13,6 +13,7 @@
 			maxlength="3" required
          	placeholder="科目コードを入力してください"><br>
          	
+        <!-- java側から重複エラーが返ってきたときだけ表示するエリア --> 	
         <c:if test="${not empty errors.cd}">
             <div style="color: #ff9900; font-size: 0.9em; margin-top: 5px; margin-bottom: 5px;">
                 ${errors.cd}

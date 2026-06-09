@@ -21,7 +21,7 @@ public class SubjectListAction extends Action {
 		
 		//ログインしていない場合はログイン画面に飛ばす
 		if (teacher == null) {
-			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
 		}
 		

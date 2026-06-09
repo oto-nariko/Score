@@ -20,10 +20,10 @@ public class TestRegistAction extends Action {
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//セッションからユーザーデータを取得
 		HttpSession session = req.getSession();
-		//セッションが切れているときはログイン画面に
 		Teacher teacher=(Teacher) session.getAttribute("user");
-		if(teacher==null) {
-			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
 		}
 		

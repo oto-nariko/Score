@@ -19,8 +19,9 @@ public class SubjectDeleteExecuteAction extends Action {
 		SubjectDao sDao=new SubjectDao();
 		
 		Teacher teacher = (Teacher) session.getAttribute("user");
-		if(teacher==null) {
-			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
 		}
 		String cd=req.getParameter("subject_cd");
