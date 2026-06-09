@@ -13,10 +13,11 @@ public class TestListStudentDao extends Dao{
 	
 	//共通sql
 	private String baseSql =
-	        "select t.*, sub.name as subject_name "
+	        "select t.subject_cd, t.no, t.point, sub.name as subject_name "
 	        + "from test t "
-	        + "left join subject sub "
-	        + "on t.subject_cd = sub.cd and t.school_cd = sub.school_cd "
+	        + "join subject sub "
+	        + "on t.subject_cd = sub.cd "
+	        + "and t.school_cd = sub.school_cd "
 	        + "where t.student_no = ?";
 	
 	//ResultSetをlistに変換するメソッド

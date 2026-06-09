@@ -43,15 +43,20 @@ public class TestListSubjectExecuteAction extends Action {
 		SubjectDao subDao=new SubjectDao();
 		TestListSubjectDao tlsDao=new TestListSubjectDao();
 
+		//クラス取得
 		List<String> classList=cDao.filter(teacher.getSchool());
+		//科目取得
 		List<Subject> subjectList=subDao.filter(teacher.getSchool());
+		//検索結果
 		List<TestListSubject> tests=new ArrayList<>();
+		//入学年度
 		List<Integer> entYearSet=new ArrayList<>();
 		int year=2026;
+		//入学年度を追加
 		for (int i=year-10;i<=year; i++) {
 			entYearSet.add(i);
 		}
-		
+		//未入力の場合
 		if (entYear==0
 		        || classNum==null || classNum.equals("")
 		        || subjectCd==null || subjectCd.equals("")) {
@@ -70,11 +75,13 @@ public class TestListSubjectExecuteAction extends Action {
 		    req.getRequestDispatcher("/test_list.jsp").forward(req, res);
 		    return;
 		}
-
+		
+		//科目取得
 		Subject subject=subDao.get(subjectCd,teacher.getSchool());
-
+		//成績検索
 		tests=tlsDao.filter(entYear,classNum,subject,teacher.getSchool());
-
+		
+		//検索結果なし
 		if (tests==null || tests.size()==0){
 
 		    req.setAttribute("error","学生情報が存在しませんでした");
@@ -92,6 +99,7 @@ public class TestListSubjectExecuteAction extends Action {
 		    return;
 		}
 		
+		//jspに渡す
 		req.setAttribute("subject",subject);
 
 		req.setAttribute("f1",entYearStr);
