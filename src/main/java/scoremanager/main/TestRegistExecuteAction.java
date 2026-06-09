@@ -46,7 +46,7 @@ public class TestRegistExecuteAction extends Action {
 				//検索前の状態に戻すため、検索用プルダウンの中身を再準備してセット
 				SubjectDao subDao = new SubjectDao();
 				ClassNumDao cDao = new ClassNumDao();
-				req.setAttribute("subjects", subDao.filter(school)); // 科目リスト
+				req.setAttribute("subject_list", subDao.filter(school)); // 科目リスト
 				req.setAttribute("class_list", cDao.filter(school)); // クラスリスト
 				
 				//選択されていた値をキープして戻す
