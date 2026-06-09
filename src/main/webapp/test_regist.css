@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+form[action="TestRegist.action"]{
+	background-color: #f8f9fa;
+	padding: 15px 20px;
+	border: 1px solid #e9ecef;
+	border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px; /* 要素同士の程よい隙間 */
+}
+
+form[action="TestRegist.action"] label {
+    font-weight: bold;
+    color: #495057;
+}
+
+form[action="TestRegist.action"] select {
+    padding: 6px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 0.95em;
+    min-width: 100px;
+}
+
+/* 検索ボタン */
+.btn-search {
+    background-color: #6c757d; /*グレー */
+    color: #ffffff;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-search:hover {
+    background-color: #5a6268;
+}
+/*選択状態メッセージ*/
+div > label {
+    display: block;
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* 枠線を綺麗に1本にする */
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+table, th, td {
+    border: 1px solid #dee2e6; /* 薄いグレーの枠線 */
+}
+
+th {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+td {
+    padding: 10px;
+    color: #495057;
+    vertical-align: middle;
+}
+
+/*点数入力欄*/
+td input[type="number"] {
+    width: 120px;
+    padding: 6px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/*エラーメッセージ*/
+
+.error-range-msg {
+    display: block;
+    color: #ff9900;       
+    font-size: 0.85em;    /* 通常より少し小さめ */
+    margin-top: 4px;      /* 入力欄との隙間 */
+}
+
+/* 削除リンクボタン */
+.btn-delete {
+    color: #dc3545; /* 赤色 */
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
+/* 登録して終了ボタン */
+.btn-sbmit {
+    background-color: #6c757d; /* 検索ボタンとお揃いのグレー */
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 0.95em;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-sbmit:hover {
+    background-color: #5a6268;
+}
+
+/*  通常時（正しい数字のとき）はエラーメッセージを非表示にする */
+td input[type="number"] + input[type="hidden"] + .error-range-msg {
+    display: none;
+}
+
+/* 0〜100以外の数字（無効な値 = :invalid）が入力されたときだけ表示する */
+td input[type="number"]:invalid + input[type="hidden"] + .error-range-msg {
+    display: block;
+}

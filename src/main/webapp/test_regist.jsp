@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/test_regist.css">
 <body>
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
@@ -75,6 +76,8 @@
 					<td>
 						<input type="number" name="point_${test.student.no}" value="${test.point}" min="0" max="100">
 						<input type="hidden" name="regist" value="${test.student.no}">
+						
+						<span class="error-range-msg">0〜100の範囲で入力してください</span>
 					</td>
 					<td>
 						<a href="TestDelete.action?student_no=${test.student.no}&f2=${f2}&f3=${f3}&f4=${f4}" class="btn-delete">削除</a>

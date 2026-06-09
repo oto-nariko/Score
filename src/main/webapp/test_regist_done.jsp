@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/test_regist_done.css">
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
