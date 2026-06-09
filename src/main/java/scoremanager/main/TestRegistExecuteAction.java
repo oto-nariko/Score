@@ -12,6 +12,8 @@ import bean.Student;
 import bean.Subject;
 import bean.Teacher;
 import bean.Test;
+import dao.ClassNumDao;
+import dao.SubjectDao;
 import dao.TestDao;
 import tool.Action;
 
@@ -31,8 +33,34 @@ public class TestRegistExecuteAction extends Action {
 		School school = teacher.getSchool();
 		
 		String subjectCd = req.getParameter("subject");
-		int count = Integer.parseInt(req.getParameter("count"));
+		String countStr = req.getParameter("count");
 		String classNum = req.getParameter("classNum");
+		
+		if (subjectCd == null || subjectCd.equals("") || 
+				countStr == null || countStr.equals("") || 
+				classNum == null || classNum.equals("")) {
+				
+				//エラーメッセージをセット
+				req.setAttribute("errors", "科目、クラス、テスト回数をすべて選択してください");
+				
+				//検索前の状態に戻すため、検索用プルダウンの中身を再準備してセット
+				SubjectDao subDao = new SubjectDao();
+				ClassNumDao cDao = new ClassNumDao();
+				req.setAttribute("subjects", subDao.filter(school)); // 科目リスト
+				req.setAttribute("class_list", cDao.filter(school)); // クラスリスト
+				
+				//選択されていた値をキープして戻す
+				req.setAttribute("f2", classNum);
+				req.setAttribute("f3", subjectCd);
+				req.setAttribute("f4", countStr);
+				
+				// 元の画面にフォワードして
+				req.getRequestDispatcher("/test_regist.jsp").forward(req, res);
+				return;
+		}
+		
+		//intにする
+		int count = Integer.parseInt(countStr);
 		
 		String[] studentNoArray = req.getParameterValues("regist");
 		List<Test> testList = new ArrayList<>();
