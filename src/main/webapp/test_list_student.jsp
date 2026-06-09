@@ -6,7 +6,9 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
+<!-- 学生氏名 -->
 <div>氏名：${student.name}</div>
+<!-- 成績一覧 -->
 <table>
 	<tr>
 		<th>科目名</th>
@@ -14,6 +16,7 @@
 		<th>回数</th>
 		<th>点数</th>
 	</tr>
+	<!-- 成績表示 -->
 	<c:forEach var="subject" items="${list}">
 	<tr>
 		<td>${subject.subjectName}</td>
