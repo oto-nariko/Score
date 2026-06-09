@@ -3,11 +3,8 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@include file="../../header.jsp" %>
 <body>
-<%@include file="../../sidebar.jsp" %>
-<!-- 学生氏名 -->
-<div>氏名：${student.name}</div>
+
 <!-- 成績一覧 -->
 <table>
 	<tr>
@@ -27,5 +24,4 @@
 	</c:forEach>
 </table>
 </body>
-<%@include file="../../footer.jsp" %>
 </html>

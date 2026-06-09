@@ -24,7 +24,7 @@ public class TestListSubjectExecuteAction extends Action {
 		
 		//ログインしていない場合はログイン画面に飛ばす
 		if (teacher == null) {
-			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
 		}
 
@@ -110,7 +110,8 @@ public class TestListSubjectExecuteAction extends Action {
 		req.setAttribute("ent_year_set",entYearSet);
 		req.setAttribute("class_num_set",classList);
 		req.setAttribute("subjects",subjectList);
-		req.setAttribute("list",tests);
-		req.getRequestDispatcher("/test_list_subject.jsp").forward(req, res);
+		req.setAttribute("list", tests);
+		req.setAttribute("resultType", "subject");
+		req.getRequestDispatcher("/test_list.jsp").forward(req, res);
 		}
 	}

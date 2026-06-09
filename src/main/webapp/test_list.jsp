@@ -76,6 +76,13 @@
 	<p>${studentResultError}</p>
 	</c:if>
 	<hr>
+	<c:if test="${resultType == 'subject'}">
+	<jsp:include page="test_list_subject.jsp" />
+	</c:if>
+
+	<c:if test="${resultType == 'student'}">
+	<jsp:include page="test_list_student.jsp" />
+</c:if>
 	<p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
 	</main>
 	</div>
