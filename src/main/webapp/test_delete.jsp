@@ -9,7 +9,7 @@
 <main class="content">
 	<h2>成績削除</h2>
 	
-	<div><label>科目：${subject_name}（${f4}回目）</label></div>
+	<div><label>科目：${subject_name}　（${no}回目）</label></div>
 	<table border="1">
 		<thead>
 			<tr>
@@ -22,12 +22,11 @@
 		</thead>	
 		<tbody>
 				<tr>
-					<td>${test.student.entYear}</td>
-					<td>${test.student.classNum}</td>
-					<td>${test.student.no}</td>
-					<td>${test.student.name}</td>
-					<td>${test.point }</td>
-				</tr>
+					<td>${f1}</td> 
+					<td>${f2}</td>
+					<td>${student_no}</td>
+					<td>${student_name}</td>
+					<td>${point}</td> </tr>
 		</tbody>
 	</table>
 	
