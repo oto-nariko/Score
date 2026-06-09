@@ -17,10 +17,11 @@ public class StudentCreateAction extends Action {
 		//セッションからユーザーデータを取得
 		HttpSession session = req.getSession();
 		Teacher teacher = (Teacher)session.getAttribute("user");
+		//Teacher teacher = null;
 		
 		//ログインしていない場合はログイン画面に飛ばす
 		if (teacher == null) {
-			res.sendRedirect(req.getContextPath() + "/scoremanager/main/Login.action");
+			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
 		}
 		

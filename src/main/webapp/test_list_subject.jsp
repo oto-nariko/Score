@@ -6,7 +6,9 @@
 <%@include file="../../header.jsp" %>
 <body>
 <%@include file="../../sidebar.jsp" %>
+<!-- 科目名 -->
 <div>科目：${subject.name }</div>
+<!-- 成績一覧 -->
 <table>
 	<tr>
 		<th>入学年度</th>
@@ -16,20 +18,21 @@
 		<th>1回</th>
 		<th>2回</th>
 	</tr>
-	
+	<!-- 学生情報表示 -->
 	<c:forEach var="student" items="${list}">
 	<tr>
 		<td>${student.entYear}</td>
 		<td>${student.classNum}</td>
 		<td>${student.studentNo}</td>
 		<td>${student.studentName}</td>
-		
+		<!-- 1回目 -->
 		<td>
 			<c:choose>
 				<c:when test="${empty student.getPoint(1)}">-</c:when>
 				<c:otherwise>${student.getPoint(1)}</c:otherwise>
 			</c:choose>
 		</td>
+		<!-- 2回目 -->
 		<td>
 			<c:choose>
 				<c:when test="${empty student.getPoint(2)}">-</c:when>

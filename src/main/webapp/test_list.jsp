@@ -8,11 +8,11 @@
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
 <h2>成績参照</h2>
-
+<!-- 科目情報 -->
 <section class="search-block">
 	<p><strong>科目情報</strong></p>
 	<form action="TestListSubjectExecute.action" method="post">
-		<!-- 15 識別コード -->
+		<!-- 識別コード -->
 		<input type="hidden" name="f" value="sj">
 		
 		<label>入学年度</label>
@@ -54,7 +54,7 @@
 <section>
 	<p><strong>学生情報</strong></p>
 	<form action="TestListStudentExecute.action" method="post">
-		<!-- 16 識別コード -->
+		<!-- 識別コード -->
 		<input type="hidden" name="f" value="st">
 		
 		<label>学生番号</label>
@@ -70,9 +70,11 @@
 		<input type="submit" value="検索">
 	</form>
 	</section>
+	<!-- 学生情報表示 -->
 	<c:if test="${not empty student}">
 	<p>氏名：${student.name}（${student.no}）</p>
 	</c:if>
+	<!-- 成績なし -->
 	<c:if test="${not empty studentResultError}">
 	<p>${studentResultError}</p>
 	</c:if>
