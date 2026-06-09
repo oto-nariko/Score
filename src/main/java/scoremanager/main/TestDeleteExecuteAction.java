@@ -46,7 +46,7 @@ public class TestDeleteExecuteAction extends Action {
 		TestDao tDao = new TestDao();
 		tDao.delete(test);
 		
-		req.getRequestDispatcher("/teat_delete_done.jsp").forward(req, res);
+		req.getRequestDispatcher("/test_delete_done.jsp").forward(req, res);
 
 	}
 

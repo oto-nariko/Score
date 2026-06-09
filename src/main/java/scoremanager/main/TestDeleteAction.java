@@ -48,8 +48,11 @@ public class TestDeleteAction extends Action {
 		Test test = tDao.get(student, subject, school, num);
 		
 		//箱詰めしてフォワード
+		req.setAttribute("ent_year", test.getStudent().getEntYear());
+		req.setAttribute("class_num", test.getStudent().getClassNum());
 		req.setAttribute("student_no", test.getStudent().getNo());
 		req.setAttribute("student_name", test.getStudent().getName());
+		req.setAttribute("point", test.getPoint());
 		req.setAttribute("subject_cd", test.getSubject().getCd());
 		req.setAttribute("subject_name", test.getSubject().getName());
 		req.setAttribute("no", test.getNo());
