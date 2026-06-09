@@ -6,6 +6,7 @@
 <body>
 
 <!-- 成績一覧 -->
+<c:if test="${not empty list}">
 <table>
 	<tr>
 		<th>科目名</th>
@@ -13,6 +14,7 @@
 		<th>回数</th>
 		<th>点数</th>
 	</tr>
+</c:if>
 	<!-- 成績表示 -->
 	<c:forEach var="subject" items="${list}">
 	<tr>
