@@ -3,35 +3,43 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="../../student.css">
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
 
 <h2>学生管理</h2>
+<div class="action-box">
+	<a href="StudentCreate.action">新規登録</a>
+</div>
 
-<a href="StudentCreate.action">新規登録</a>
-
-<form action="StudentList.action" method="get">
-	<label>入学年度</label>
-	<select name="f1">
-		<option value="0">--------</option>
-		<c:forEach var="year" begin="2020" end="2030">
-			<option value="${year}" ${f1 == year ? 'selected' : ''}>${year}</option>
-		</c:forEach>
-	</select>
+<form action="StudentList.action" method="get" class="filter-box">
+	<div class="form-group">
+		<label>入学年度</label>
+		<select name="f1">
+			<option value="0">--------</option>
+			<c:forEach var="year" begin="2020" end="2030">
+				<option value="${year}" ${f1 == year ? 'selected' : ''}>${year}</option>
+			</c:forEach>
+		</select>
+	</div>
+		
+	<div class="form-group">
+		<label>クラス</label>
+		<select name="f2">
+			<option value="">--------</option>
+			<c:forEach var="num" items="${class_list}">
+				<option value="${num}" ${f2 == num ? 'selected' : ''}>${num}</option>
+			</c:forEach>
+		</select>
+	</div>
 	
-	<label>クラス</label>
-	<select name="f2">
-		<option value="">--------</option>
-		<c:forEach var="num" items="${class_list}">
-			<option value="${num}" ${f2 == num ? 'selected' : ''}>${num}</option>
-		</c:forEach>
-	</select>
+	<div class="checkbox-group">
+		<input type="checkbox" name="f3" value="t" ${f3 ? 'checked' : ''}>
+		<label>在学中</label>
+	</div>
 	
-	<input type="checkbox" name="f3" value="t" ${f3 ? 'checked' : ''}>
-	<label>在学中</label>
-	
-	<button type="submit">絞込み</button>
+	<button type="submit" class="btn-filter">絞込み</button>
 </form>
 <c:if test="${not empty students}">
 	<div class="search-result-count" >
@@ -40,7 +48,7 @@
 </c:if>	
 
 
-<table border="1">
+<table class="student-table">
 	<tr>
 		<th>入学年度</th>
 		<th>学生番号</th>

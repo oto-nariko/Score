@@ -5,48 +5,58 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="../../student.css">
 <div class="wrapper">
 
 <%@include file="../../sidebar.jsp" %>
 
 <main class="content">
 <h2>学生情報変更</h2>
-<form action="StudentUpdateExecute.action" method="post">
+<form action="StudentUpdateExecute.action" method="post" class="regist-form">
 
 	<c:if test="${not empty errors}">
-    	<p>${errors}</p>
+    	<p class="error-msg">${errors}</p>
 	</c:if>
 
-	<label>入学年度</label>
-	<span>${ent_year }</span>
-	<input type="hidden" name="ent_year" value="${ent_year}">
-	<br>
+	<div class="form-item">
+		<label>入学年度</label>
+		<span>${ent_year }</span>
+		<input type="hidden" name="ent_year" value="${ent_year}">
+	</div>
 
-	<label>学生番号</label>
-	<span>${no }</span>
-	<input type="hidden" name="no" value="${no}">
-	<br>
+	<div class="form-item">
+		<label>学生番号</label>
+		<span>${no }</span>
+		<input type="hidden" name="no" value="${no}">
+	</div>
 
-	<label>氏名</label>
-	<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required><br>
+	<div class="form-item">
+		<label>氏名</label>
+		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required>
+	</div>
 
-	<label>クラス</label>
-	<select name="class_num">
-		<option value="">--------</option>
-		<c:forEach var="num" items="${class_list}">
-			<option value="${num}" ${class_num == num ? 'selected' : ''}>${num}</option>
-		</c:forEach>
-	</select>
-	<br>
+	<div class="form-item">
+		<label>クラス</label>
+		<select name="class_num">
+			<option value="">--------</option>
+			<c:forEach var="num" items="${class_list}">
+				<option value="${num}" ${class_num == num ? 'selected' : ''}>${num}</option>
+			</c:forEach>
+		</select>
+	</div>
 
-	<label>在学中</label>
-	<input type="checkbox" name="is_attend" ${is_attend ? 'checked' : '' }><br>
+	<div class="checkbox-grop update-checkbox">
+		<label>在学中</label>
+		<input type="checkbox" name="is_attend" ${is_attend ? 'checked' : '' }>
+	</div>
 
-	<button type="submit" name="login">変更</button>
+	<button type="submit" class="btn-update-submit" name="login">変更</button>
 	
 </form>
 
-<a href="StudentList.action">戻る</a>
+<div class="back-link"></div>
+	<a href="StudentList.action">戻る</a>
+</div>
 </main>
 </div>
 </body>

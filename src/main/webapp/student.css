@@ -1,0 +1,264 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   共通・見出し
+   ========================================================================== */
+h2 {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* 新規登録ボタンの配置エリア（右寄せ） */
+.action-box {
+    text-align: right;
+    margin-bottom: 15px;
+}
+.btn-create {
+    font-size: 14px;
+    color: #3b82f6;
+    text-decoration: none;
+}
+.btn-create:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   絞込み検索ボックス（横並びレイアウト）
+   ========================================================================== */
+.filter-box {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: flex-end; /* 下揃えにして要素の高さのズレを防ぐ */
+    gap: 25px;            /* 要素同士の間隔 */
+}
+
+/* 入学年度・クラスの縦並びグループ */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-group label {
+    font-size: 13px;
+    color: #666666;
+}
+.form-group select {
+    width: 200px;
+    padding: 6px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+/* 在学中チェックボックスのグループ */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333333;
+    padding-bottom: 6px; /* ボタンと高さを揃えるための微調整 */
+}
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* 絞込みボタン（設計書通りのダークグレー） */
+.btn-filter {
+    background-color: #4b5563;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    padding-bottom: 8px; /* 文字位置の微調整 */
+}
+.btn-filter:hover {
+    background-color: #374151;
+}
+
+/* ==========================================================================
+   検索結果・テーブル（表）
+   ========================================================================== */
+.search-result-count {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* 学生一覧テーブル（外枠の黒線を消してシャープに） */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+.student-table th {
+    text-align: left;
+    font-size: 14px;
+    color: #333333;
+    padding: 10px 8px;
+    border-bottom: 2px solid #cbd5e1; /* ヘッダー下部は少し太めの線 */
+    font-weight: bold;
+}
+.student-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: 1px solid #e2e8f0; /* データ行の区切りは薄いグレー */
+}
+
+/* 中央寄せ用クラス */
+.text-center {
+    text-align: center !important;
+}
+
+/* 変更リンク */
+.student-table td a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+.student-table td a:hover {
+    text-decoration: underline;
+}
+
+/* 該当データなしメッセージ */
+.empty-message {
+    padding: 20px 0;
+    color: #666666;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   学生情報登録画面（フォーム用の装飾）
+   ========================================================================== */
+
+/* フォーム全体の幅を設計書に合わせて制限（横に広がりすぎないように） */
+.regist-form {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/* 入学年度や学生番号の「1グループ」を縦並びにする */
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;              /* ラベルと入力欄のスキマ */
+    margin-bottom: 20px;   /* 項目同士の縦のスキマ */
+}
+
+/* 項目名（ラベル）の文字スタイル */
+.form-item label {
+    font-size: 14px;
+    color: #333333;
+}
+
+/* 入力欄（テキストボックス・プルダウン）共通の装飾 */
+.form-item input[type="text"],
+.form-item select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;    /* 設計書風の少し丸みのある角 */
+    font-size: 14px;
+    background-color: #ffffff;
+    box-sizing: border-box; /* 横幅100%からはみ出さないようにする */
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* 入力欄にフォーカスが当たった時の効果 */
+.form-item input[type="text"]:focus,
+.form-item select:focus {
+    border-color: #3b82f6; /* 青い枠線にして入力中であることをわかりやすく */
+}
+
+/* 設計書通りの薄いグレーのプレースホルダー文字 */
+.form-item input::placeholder {
+    color: #babcbe;
+}
+
+/* 登録して終了ボタン（設計書通りのチャコールグレー） */
+.btn-submit {
+    background-color: #4b5563;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #374151; /* ホバー時に少し暗く */
+}
+
+/* 戻るリンクの位置微調整 */
+.back-link {
+    margin-top: 20px;
+}
+.back-link a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+}
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+/* エラーメッセージ（赤文字） */
+.error-msg {
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   学生情報変更画面（追加分）
+   ========================================================================== */
+
+/* 変更できない項目（入学年度・学生番号）の文字装飾 */
+.form-text {
+    font-size: 15px;
+    color: #333333;
+    padding: 5px 0;      /* 周りに少しゆとりを持たせる */
+    font-weight: 500;
+}
+
+/* 変更画面用の在学中チェックボックスのスキマ調整 */
+.update-checkbox {
+    margin-top: 5px;
+    margin-bottom: 25px; /* ボタンとの間にスキマを作る */
+}
+
+/* 変更ボタン（設計書通りの鮮やかな青色） */
+.btn-update-submit {
+    background-color: #3b82f6; /* 得点管理システムアクセントの青 */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-update-submit:hover {
+    background-color: #1d4ed8; /* ホバー時に少し濃い青に */
+}

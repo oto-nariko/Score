@@ -65,7 +65,7 @@ public class StudentCreateExecuteAction extends Action {
 		try {
 			sDao.save(student);
 			
-			req.getRequestDispatcher("StudentList.action").forward(req, res);
+			req.getRequestDispatcher("/student_create_done.jsp").forward(req, res);
 		} catch (Exception e){
 			req.setAttribute("error_message", "学生番号が重複しています");
 			
@@ -78,7 +78,7 @@ public class StudentCreateExecuteAction extends Action {
 		    List<String> classList = cDao.filter(teacher.getSchool());
 		    req.setAttribute("class_list", classList);
 		    
-		    req.getRequestDispatcher("/student_create_done.jsp").forward(req, res);
+		    req.getRequestDispatcher("/student_create.jsp").forward(req, res);
 		}
 
 

@@ -4,9 +4,11 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import bean.School;
 import bean.Student;
+import bean.Teacher;
 import dao.ClassNumDao;
 import dao.StudentDao;
 import tool.Action;
@@ -15,14 +17,21 @@ public class StudentUpdateAction extends Action{
 
 	@Override
 	public void execute(HttpServletRequest req,HttpServletResponse res) throws Exception {
-
+		HttpSession session=req.getSession();
+		Teacher teacher=(Teacher) session.getAttribute("user");
+		//ログインしていない場合はログイン画面に飛ばす
+		if (teacher == null) {
+			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
+			return;
+		}
+		
 		//jspから学生番号を受け取る
 		String no = req.getParameter("no");
 		
 		//学生の詳細データを取得
 		StudentDao sDao = new StudentDao();
 		Student student = sDao.get(no);
-		School school = student.getSchool();
+		School school=teacher.getSchool();
 		
 		//クラスの一覧を取得
 		ClassNumDao cDao = new ClassNumDao();
