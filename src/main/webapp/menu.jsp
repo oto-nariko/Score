@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/menu.css">
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 	<main class="content">

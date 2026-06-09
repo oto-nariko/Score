@@ -28,5 +28,39 @@
 
 .student a,.subject a{
 	font-size: 1.3em;
+	font-weight:bold;
+}
+
+.student{background-color: #fce4e4;}
+.score{background-color: #e2f7eb;}
+.subject{background-color: #e8e6f8;}
+
+.score{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;	
+	padding: 0;
+}
+
+.score-title{
+	display: block;
+	margin:0 0 10px 0;
+	font-size: 1.1em;
+	font-weight:bold;
+	color:#333;
+	text-align: center;
+	width: 100%;
 	
+}
+
+.score-item{
+	display: block;
+	margin:0 0 5px 0px;
+	text-align:center ;
+	width: 100%;
+}
+
+.score-item:last-child{
+	margin-bottom: 0;
 }
