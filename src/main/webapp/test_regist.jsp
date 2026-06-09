@@ -11,7 +11,7 @@
 <h2>成績管理</h2>
 
 <c:if test="${not empty errors}">
-	<p>${errors}</p>
+	<p style="color: #ffcc00;">${errors}</p>
 </c:if>
 
 <form action="TestRegist.action" method="post">

@@ -46,7 +46,7 @@
 	<!-- エラー表示エリア -->
 	<c:if test="${not empty error}">
     <div class="error-msg">
-        <p>${error}</p>
+        <p style="color: #ffcc00;">${error}</p>
     </div>
 	</c:if>
 <br>
@@ -58,10 +58,13 @@
 		<input type="hidden" name="f" value="st">
 		
 		<label>学生番号</label>
-		<input type="text" name="f4" value="${f4}" placeholder="学生番号を入力してください" maxlength="10">
+		<input type="text" name="f4" value="${f4}" placeholder="学生番号を入力してください" maxlength="10" required>
 		
 		<c:if test="${not empty studentError}">
-    	<div class="error-msg">${studentError }</div>
+		
+		<div style="color: #ff9900; font-size: 0.9em; margin-top: 5px; margin-bottom: 5px;">
+                ${studentError }
+           </div>
 		</c:if>
 		<!-- 検索ボタン -->
 		<input type="submit" value="検索">
@@ -74,7 +77,7 @@
 	<p>${studentResultError}</p>
 	</c:if>
 	<hr>
-	<p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
+	<p class="info-msg" style="color: #00a4e4;">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
 	</main>
 	</div>
 </body>
