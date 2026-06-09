@@ -39,8 +39,15 @@ public class TestDao extends Dao {
 		ResultSet rSet = null;
 		
 		try {
-			// 主キーが一致する1件だけを引っ張ってくるSQL
-			String sql = "select point from test where student_no = ? and subject_cd = ? and no = ? and school_cd = ?";
+			// 点数、学生名、教科名
+			String sql = """
+					SELECT t.point, s.name AS student_name, sub.name AS subject_name 
+					FROM test t
+					JOIN student s ON t.student_no = s.no
+					JOIN subject sub ON t.subject_cd = sub.cd AND t.school_cd = sub.school_cd
+					WHERE t.student_no = ? AND t.subject_cd = ? AND t.no = ? AND t.school_cd = ?
+					""";
+			
 			st = con.prepareStatement(sql);
 			
 			st.setString(1, student.getNo());
@@ -50,13 +57,21 @@ public class TestDao extends Dao {
 			
 			rSet = st.executeQuery();
 			
-			// データが存在した場合だけ、Testオブジェクトを作って中身をセットする
+			// データが存在した場合だけ、オブジェクトを作って中身をセットする
 			if (rSet.next()) {
 				test = new Test();
-				test.setStudent(student);
-				test.setSubject(subject);
 				test.setNo(no);
 				test.setSchool(school);
+				
+				Student stu = new Student();
+				stu.setNo(student.getNo());
+				stu.setName(rSet.getString("student_name"));
+				test.setStudent(stu);
+				
+				Subject sub = new Subject();
+				sub.setCd(subject.getCd());
+				sub.setName(rSet.getString("subject_name"));
+				test.setSubject(sub);
 				
 				int point = rSet.getInt("point");
 				if (rSet.wasNull()) {

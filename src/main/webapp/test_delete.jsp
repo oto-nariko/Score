@@ -9,12 +9,10 @@
 <main class="content">
 	<h2>成績削除</h2>
 	
-	<div><label>科目：${subject_name}（${f4}回目）</label></div>
+	<div><label>科目：${subject_name}（${no}回目）</label></div>
 	<table border="1">
 		<thead>
 			<tr>
-				<th>入学年度</th>
-				<th>クラス</th>
 				<th>学生番号</th>
 				<th>氏名</th>
 				<th>点数</th>		
@@ -22,11 +20,9 @@
 		</thead>	
 		<tbody>
 				<tr>
-					<td>${test.student.entYear}</td>
-					<td>${test.student.classNum}</td>
-					<td>${test.student.no}</td>
-					<td>${test.student.name}</td>
-					<td>${test.point }</td>
+					<td>${student_no}</td>
+					<td>${student_name}</td>
+					<td>${point }</td>
 				</tr>
 		</tbody>
 	</table>
@@ -34,10 +30,10 @@
 	<p>上記の成績を削除してもよろしいですか</p>
 	
 	<form action="TestDeleteExecute.action" method="post">
-		<input type="hidden" name="student_no" value="${test.student.no}">
-		<input type="hidden" name="subject_cd" value="${f3}">
-		<input type="hidden" name="no" value="${f4}">
-		<input type="hidden" name="classNum" value="${f2}">
+		<input type="hidden" name="student_no" value="${student_no}">
+		<input type="hidden" name="subject_cd" value="${subject_cd}">
+		<input type="hidden" name="no" value="${no}">
+		
 		<input type="submit" value="削除" >
     </form>
     <a href="TestRegist.action">戻る</a>
