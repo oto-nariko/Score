@@ -36,31 +36,34 @@ public class SubjectUpdateExacuteAction extends Action {
 		String name=req.getParameter("name");
 		School school=teacher.getSchool();
 		
+		//入力チェック　データベースにそのデータがあるかを確認
 		if(name==null||name.isEmpty()) {
 			errors.put("name", "科目名を入力してください");
 			
 		}
 		if(errors.isEmpty()) {
-			Subject existSubject=sDao.get(cd, school);
+			Subject existSubject=sDao.get(cd, school);// 指定されたコードの科目をDBから取得
 			if(existSubject==null) {
 				errors.put("name","科目データが存在していません");			
 			}
 		}
-		
+		//エラーが一つでも発生していた場合の処理
 		if(!errors.isEmpty()) {
 			req.setAttribute("errors", errors);
 			req.setAttribute("cd", cd);
 			req.setAttribute("name", name);
 			req.getRequestDispatcher("/subject_update.jsp").forward(req, res);
 		}
+		//エラーなかった時
 		else {
+			//あたらしいSubject型のBeanオブジェクトを作成して、画面のデータをセットする
 			Subject subject=new Subject();
 			subject.setCd(cd);
 			subject.setName(name);
 			subject.setSchool(school);
-			
+			//データベースの情報を更新、保存する
 			sDao.save(subject);
-			
+			//変更完了画面へ画面を遷移させる
 			req.getRequestDispatcher("/subject_update_done.jsp").forward(req, res);
 		}	
 		

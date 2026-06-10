@@ -85,6 +85,7 @@ public class TestListStudentExecuteAction extends Action {
 		req.setAttribute("class_num_set", classList);
 		req.setAttribute("subjects", subjectList);
 		req.setAttribute("list", tests);
+		req.setAttribute("resultType", "student");
 		//成績なしの場合
 		if (tests == null || tests.size() == 0) {
 		    req.setAttribute("studentResultError", "成績情報が存在しませんでした");
@@ -92,7 +93,7 @@ public class TestListStudentExecuteAction extends Action {
 		    return;
 		}
 		//画面遷移
-		req.getRequestDispatcher("/test_list_student.jsp").forward(req, res);
+		req.getRequestDispatcher("/test_list.jsp").forward(req, res);
 		return;
 	}
 }

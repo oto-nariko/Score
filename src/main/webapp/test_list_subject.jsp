@@ -3,9 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@include file="../../header.jsp" %>
 <body>
-<%@include file="../../sidebar.jsp" %>
 <!-- 科目名 -->
 <div>科目：${subject.name }</div>
 <!-- 成績一覧 -->
@@ -45,5 +43,4 @@
 	</c:forEach>	
 </table>
 </body>
-<%@include file="../../footer.jsp" %>
 </html>

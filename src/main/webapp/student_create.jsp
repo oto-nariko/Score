@@ -9,12 +9,14 @@
 <main class="content">
 
 <h2>学生情報登録</h2>
-
+<!-- エラーメッセージ表示 -->
 <c:if test="${not empty error_message}">
 	<p class="error-msg">${error_message}</p>
 </c:if>
 
 <form action="StudentCreateExecute.action" method="post" class="regist-form">
+
+<!-- 学生情報登録フォーム -->
 
 	<div class="form-item">
 		<label>入学年度</label>
@@ -47,6 +49,7 @@
 	</div>
 
 	<button type="submit" name="end" class="btn-submit">登録して終了</button>
+
 
 </form>
 

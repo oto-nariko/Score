@@ -25,7 +25,7 @@ public class SubjectCreateExecuteAction extends Action {
 			res.sendRedirect(req.getContextPath() + "/scoremanager/Login.action");
 			return;
 		}
-		
+		//登録画面から送られてきた入力値を取得
 		String cd =req.getParameter("cd");
 		String name=req.getParameter("name");
 		//エラーメッセージを格納

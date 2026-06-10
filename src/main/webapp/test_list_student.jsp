@@ -3,12 +3,10 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@include file="../../header.jsp" %>
 <body>
-<%@include file="../../sidebar.jsp" %>
-<!-- 学生氏名 -->
-<div>氏名：${student.name}</div>
+
 <!-- 成績一覧 -->
+<c:if test="${not empty list}">
 <table>
 	<tr>
 		<th>科目名</th>
@@ -16,6 +14,7 @@
 		<th>回数</th>
 		<th>点数</th>
 	</tr>
+</c:if>
 	<!-- 成績表示 -->
 	<c:forEach var="subject" items="${list}">
 	<tr>
@@ -27,5 +26,4 @@
 	</c:forEach>
 </table>
 </body>
-<%@include file="../../footer.jsp" %>
 </html>

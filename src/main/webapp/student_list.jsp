@@ -9,6 +9,7 @@
 <main class="content">
 
 <h2>学生管理</h2>
+<<<<<<< HEAD
 <div class="action-box">
 	<a href="StudentCreate.action">新規登録</a>
 </div>
@@ -39,14 +40,18 @@
 		<label>在学中</label>
 	</div>
 	
+<<<<<<< HEAD
 	<button type="submit" class="btn-filter">絞込み</button>
+=======
 </form>
+<!-- 検索結果表示 -->
 <c:if test="${not empty students}">
 	<div class="search-result-count" >
 		検索結果 ： ${students.size()}件
 	</div>
 </c:if>	
 
+<<<<<<< HEAD
 
 <table class="student-table">
 	<tr>
@@ -57,23 +62,26 @@
 		<th class="text-center">在学中</th>
 		<th></th>
 	</tr>
+	
 	<c:forEach var="student" items="${students}">
 		<tr>
 			<td>${student.entYear}</td>
 			<td>${student.no}</td>
 			<td>${student.name}</td>
 			<td>${student.classNum}</td>
+			<!--  在学状況表示-->
 			<td class="text-center">
 				<c:choose>
 					<c:when test="${student.attend}">o</c:when>
 					<c:otherwise>x</c:otherwise>
 				</c:choose>
 			</td>
+			<!-- 学生情報変更画面へのリンク -->
 			<td><a href="StudentUpdate.action?no=${student.no}">変更</a></td>
 		</tr>
 	</c:forEach>
 </table>
-
+<!-- 学生情報がない時 -->
 <c:if test="${empty students}">
 	<p>学生情報が存在しません</p>
 </c:if>
