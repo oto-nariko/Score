@@ -9,7 +9,6 @@
 <main class="content">
 
 <h2>学生管理</h2>
-<<<<<<< HEAD
 <div class="action-box">
 	<a href="StudentCreate.action">新規登録</a>
 </div>
@@ -40,9 +39,8 @@
 		<label>在学中</label>
 	</div>
 	
-<<<<<<< HEAD
 	<button type="submit" class="btn-filter">絞込み</button>
-=======
+
 </form>
 <!-- 検索結果表示 -->
 <c:if test="${not empty students}">
@@ -51,7 +49,6 @@
 	</div>
 </c:if>	
 
-<<<<<<< HEAD
 
 <table class="student-table">
 	<tr>
