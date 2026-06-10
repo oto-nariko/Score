@@ -30,12 +30,12 @@
 
 	<div class="form-item">
 		<label>学生番号</label>
-		<input type="text" name="no" value="${no}" placeholder="学生番号を入力してください" required>
+		<input type="text" name="no" value="${no}" placeholder="学生番号を入力してください" maxlength="10" required>
 	</div>
 
 	<div class="form-item">
 		<label>氏名</label>
-		<input type="text" name="name" value="${name}" placeholder="氏名を入力してください" required>
+		<input type="text" name="name" value="${name}" placeholder="氏名を入力してください" maxlength="10" required>
 	</div>
 
 	<div class="form-item">
