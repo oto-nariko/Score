@@ -12,13 +12,13 @@
 	<form action='LoginExecute.action' method='post'>
 		<h2>ログイン</h2>
 		<!-- エラーメッセージ表示 -->
-		<div>
-		    ${errors}
-		</div>
+		<ul>
+		    <li>${errors}</li>
+		</ul>
 		<!-- ログインid入力 -->
 		<div>
 			<label for='id'>ログインID</label>
-			<input type='text' id='id' name='id' value='${id}' placeholder='半角でご入力ください'>
+			<input type='text' id='id' name='id' value='${id}' placeholder='半角でご入力ください' maxlength="10">
 		</div>
 
 		<br>
