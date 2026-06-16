@@ -14,7 +14,7 @@
     border-bottom: 2px solid #dee2e6; /* 下側に少し太めの線を入れる */
 }
 
-/* データの行（各科目）の設定 */
+/* 各科目の設定 */
 .subject-table td {
     padding: 12px;             /* セルの中の余白*/
     color: #212529;
@@ -22,7 +22,7 @@
     vertical-align: middle;    /* 文字を上下の真ん中に配置 */
 }
 
-/* 操作リンク（変更・削除） */
+/* 操作リンク */
 .subject-table td a {
     color: #007bff;
     text-decoration: none;

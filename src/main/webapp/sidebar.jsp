@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="main">
         <div class="sidebar">
         	<nav>
 	        	<ul>
@@ -16,4 +15,3 @@
 				</ul>	
 	        </nav>
         </div>
-</div>

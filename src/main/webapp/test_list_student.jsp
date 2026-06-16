@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
-<body>
+
 
 <!-- 学生情報表示 -->
 	<c:if test="${not empty student}">
@@ -38,5 +37,3 @@
 	</c:forEach>
 </table>
 </c:if>
-</body>
-</html>
