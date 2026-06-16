@@ -1,5 +1,6 @@
 package scoremanager.main;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,6 +32,9 @@ public class StudentCreateAction extends Action {
 		
 		//JSPに送るためにデータをセット
 		req.setAttribute("class_list", classList);
+		int currentYear=LocalDate.now().getYear();
+		req.setAttribute("startYear",currentYear-10);
+		req.setAttribute("endYear",currentYear+10);
 		
 		//フォワード
 		req.getRequestDispatcher("/student_create.jsp").forward(req, res);
