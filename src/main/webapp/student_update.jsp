@@ -32,7 +32,7 @@
 
 	<div class="form-item">
 		<label>氏名</label>
-		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" required>
+		<input type="text" name="name" value="${name }" placeholder="氏名を入力してください" maxlength="30" required>
 	</div>
 
 	<div class="form-item">
