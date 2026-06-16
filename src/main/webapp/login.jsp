@@ -12,7 +12,7 @@
 	<form action='LoginExecute.action' method='post'>
 		<h2>ログイン</h2>
 		<!-- エラーメッセージ表示 -->
-		<ul>
+		<ul class="error-list">
 		    <li>${errors}</li>
 		</ul>
 		<!-- ログインid入力 -->
