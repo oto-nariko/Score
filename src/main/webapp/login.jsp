@@ -18,14 +18,14 @@
 		<!-- ログインid入力 -->
 		<div>
 			<label for='id'>ログインID</label>
-			<input type='text' id='id' name='id' value='${id}' placeholder='半角でご入力ください' maxlength="10">
+			<input type='text' id='id' name='id' value='${id}' placeholder='半角でご入力ください' maxlength="10" required>
 		</div>
 
 		<br>
 		<!-- パスワード入力 -->
 		<div>
 			<label for='password'>パスワード</label><br>
-            <input type='password' id='password' name='password' maxlength='30' placeholder='30文字以内の半角英数字でご入力ください'>
+            <input type='password' id='password' name='password' maxlength='30' placeholder='30文字以内の半角英数字でご入力ください' required>
 		</div>
 		
 		<br>

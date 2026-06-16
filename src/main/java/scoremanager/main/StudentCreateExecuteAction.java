@@ -1,5 +1,6 @@
 package scoremanager.main;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,6 +32,7 @@ public class StudentCreateExecuteAction extends Action {
 		String no = req.getParameter("no");
 		String name = req.getParameter("name");
 		String classNum = req.getParameter("class_num");
+		int currentYear = LocalDate.now().getYear();
 		
 		//入学年度が選択されてないとき
 		if (entYearStr == null || entYearStr.equals("")) {
@@ -40,6 +42,8 @@ public class StudentCreateExecuteAction extends Action {
 			req.setAttribute("no", no);
 			req.setAttribute("name", name);
 			req.setAttribute("class_num", classNum);
+			req.setAttribute("startYear", currentYear - 10);
+			req.setAttribute("endYear", currentYear + 10);
 			
 			ClassNumDao cDao =new ClassNumDao();
 			List<String> classList = cDao.filter(teacher.getSchool());
@@ -73,6 +77,8 @@ public class StudentCreateExecuteAction extends Action {
 			req.setAttribute("no", no);
 			req.setAttribute("name", name);
 			req.setAttribute("class_num", classNum);
+			req.setAttribute("startYear", currentYear - 10);
+			req.setAttribute("endYear", currentYear + 10);
 			
 			ClassNumDao cDao = new ClassNumDao();
 		    List<String> classList = cDao.filter(teacher.getSchool());
