@@ -11,9 +11,9 @@
 	<form action="SubjectUpdateExacute.action" method="post">
 		<label>科目コード</label><br>
 		<strong>${cd}</strong><br>
-		<input type="hidden" name="cd" value="${cd}"><br>
+		<input type="hidden" name="cd" value="${cd}" redonly><br>
 		<label>科目名</label><br>
-		<input type="text" name="name" value="${name}" maxlength="20"><br>
+		<input type="text" name="name" value="${name}" maxlength="20" required><br>
 		
 		<c:if test="${not empty errors.name}">
             <span style="color:#ff9900;">${errors.name}</span><br>
