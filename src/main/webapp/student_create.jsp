@@ -22,7 +22,7 @@
 		<label>入学年度</label>
 		<select name="ent_year">
 	    <option value="">--------</option>
-	    <c:forEach var="year" begin="2020" end="2035">
+	    <c:forEach var="year" begin="${startYear }" end="${endYear }">
 	    	<option value="${year}" ${ent_year == year ? 'selected' : ''}>${year}</option>
 	    </c:forEach>
 		</select>
