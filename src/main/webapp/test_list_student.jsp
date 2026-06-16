@@ -28,12 +28,12 @@
 	<!-- 成績表示 -->
 	<c:forEach var="subject" items="${list}">
 		<c:if test="${not empty subject.point}">
-	<tr>
-		<td>${subject.subjectName}</td>
-		<td>${subject.subjectCd}</td>
-		<td>${subject.num}</td>
-		<td>${subject.point}</td>
-	</tr>
+			<tr>
+				<td>${subject.subjectName}</td>
+				<td>${subject.subjectCd}</td>
+				<td>${subject.num}</td>
+				<td>${subject.point}</td>
+			</tr>
 		</c:if>
 	</c:forEach>
 </table>
