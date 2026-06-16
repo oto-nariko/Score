@@ -55,6 +55,29 @@ public class StudentCreateExecuteAction extends Action {
 		
 		int entYear = Integer.parseInt(entYearStr);
 		
+		//保存する前に、同じ学生番号のデータが既にDBにないかチェックする
+		StudentDao sDao = new StudentDao();
+		Student existStudent = sDao.get(no); // ※StudentDao内の1件取得メソッドを呼び出す
+
+		//すでに同じ学生番号が存在していたら、完了画面にいかせずエラー画面に戻す
+		if (existStudent != null) {
+			req.setAttribute("error_message", "学生番号が重複しています");
+			
+			req.setAttribute("ent_year", entYear);
+			req.setAttribute("no", no);
+			req.setAttribute("name", name);				req.setAttribute("class_num", classNum);
+			
+			req.setAttribute("startYear", currentYear - 10);
+			req.setAttribute("endYear", currentYear + 10);
+			
+			ClassNumDao cDao = new ClassNumDao();
+			List<String> classList = cDao.filter(teacher.getSchool());
+			req.setAttribute("class_list", classList);
+			
+			req.getRequestDispatcher("/student_create.jsp").forward(req, res);
+			return;
+				}
+		
 		//
 		Student student = new Student();
 		student.setEntYear(entYear);
@@ -64,8 +87,7 @@ public class StudentCreateExecuteAction extends Action {
 		student.setAttend(true);
 		student.setSchool(teacher.getSchool());
 		
-		//DBに保存
-		StudentDao sDao = new StudentDao();
+
 		try {
 			sDao.save(student);
 			
