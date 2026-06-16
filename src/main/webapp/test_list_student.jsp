@@ -5,6 +5,16 @@
 <html>
 <body>
 
+<!-- 学生情報表示 -->
+	<c:if test="${not empty student}">
+	<p>氏名：${student.name}（${student.no}）</p>
+	</c:if>
+	
+<!-- 成績なし -->
+<c:if test="${not empty studentResultError}">
+	<p>${studentResultError}</p>
+</c:if>
+	
 <!-- 成績一覧 -->
 <c:if test="${not empty list}">
 <table>
@@ -14,7 +24,7 @@
 		<th>回数</th>
 		<th>点数</th>
 	</tr>
-</c:if>
+
 	<!-- 成績表示 -->
 	<c:forEach var="subject" items="${list}">
 	<tr>
@@ -25,5 +35,6 @@
 	</tr>
 	</c:forEach>
 </table>
+</c:if>
 </body>
 </html>
