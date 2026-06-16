@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<body>
+
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/test_list.css">
 <!-- 科目名 -->
-<div>科目：${subject.name }</div>
+<div class="subject-display-label">
+	科目：${subject.name }</div>
 <!-- 成績一覧 -->
-<table>
+<table class="score-data-table">
 	<tr>
 		<th>入学年度</th>
 		<th>クラス</th>
@@ -42,5 +43,3 @@
 	
 	</c:forEach>	
 </table>
-</body>
-</html>
