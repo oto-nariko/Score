@@ -9,7 +9,19 @@
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
-<h2>成績参照</h2>
+<h2>
+    <c:choose>
+        <c:when test="${resultType == 'subject'}">
+            成績一覧（科目）
+        </c:when>
+        <c:when test="${resultType == 'student'}">
+            成績参照（学生）
+        </c:when>
+        <c:otherwise>
+            成績参照
+        </c:otherwise>
+    </c:choose>
+</h2>
 <!-- 科目情報 -->
 <section class="search-block">
 	<p><strong>科目情報</strong></p>
@@ -76,7 +88,9 @@
 	<c:if test="${resultType == 'student'}">
 	<jsp:include page="test_list_student.jsp" />
 </c:if>
-	<p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください
+	<c:if test="${empty resultType}">
+        <p style="color: #0099cc;">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
+    </c:if>
 	</main>
 </div>
 </body>
