@@ -74,8 +74,10 @@
 	<c:if test="${resultType == 'student'}">
 	<jsp:include page="test_list_student.jsp" />
 </c:if>
-	<p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください
-	</main>
+<c:if test="${empty list }">
+	<p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
+</c:if>	
+</main>
 </div>
 </body>
 <%@include file="../../footer.jsp" %>
