@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/test_list.css">
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">

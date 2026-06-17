@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/test_list.css">
 <!-- 科目名 -->
 <div class="subject-display-label">
 	科目：${subject.name }</div>
