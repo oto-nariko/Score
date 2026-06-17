@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
-<div class="wrapper">
 <link rel="stylesheet" href="../../done.css">
+<div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
 <h2>科目情報削除</h2>
