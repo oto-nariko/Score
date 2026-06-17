@@ -74,7 +74,7 @@
 					<td>${test.student.no}</td>
 					<td>${test.student.name}</td>
 					<td>
-						<input type="number" name="point_${test.student.no}" value="${test.point}" min="0" max="100">
+						<input type="number" name="point_${test.student.no}" value="${test.point == -1 ? '' : test.point}" max="100">
 						<input type="hidden" name="regist" value="${test.student.no}">
 						
 						<span class="error-range-msg">0〜100の範囲で入力してください</span>
