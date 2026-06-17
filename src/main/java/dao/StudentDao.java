@@ -98,8 +98,6 @@ public class StudentDao extends Dao {
 		}
 		if (isAttend) {
 			sql += " and is_attend=true";
-		} else {
-			sql += " and is_attend=false";
 		}
 		
 		//学生番号順に並べ替え
