@@ -38,3 +38,53 @@
 .score-data-table tbody tr:hover {
     background-color: #fcfcfc;
 }
+
+
+/* 氏名・学籍番号表示ラベル */
+.student-info-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    margin: 20px 0 10px 5px;
+}
+
+/* 学生成績一覧テーブルのベース */
+.student-score-table {
+    width: 100%;
+    border-collapse: collapse; /* セルの境界線を重ねる */
+    margin-bottom: 30px;
+    background-color: #ffffff;
+}
+
+/* ヘッダー部分 */
+.student-score-table th {
+    background-color: #f5f5f7;
+    color: #444444;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 15px; /* 上下左右に適切な余白 */
+    border-bottom: 1px solid #dddddd;
+}
+
+/* データ行部分 */
+.student-score-table td {
+    color: #555555;
+    font-size: 13px;
+    padding: 14px 15px; /* ギュッとした印象をなくす広めの余白 */
+    border-bottom: 1px solid #eeeeee; /* 行と行の間のうっすらとした線 */
+    vertical-align: middle;
+}
+
+/* 行にマウスを乗せたときのホバー効果 */
+.student-score-table tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* 成績なしエラーメッセージ */
+.student-error-msg {
+    color: #ff9900;
+    font-size: 13px;
+    margin: 15px 0 15px 5px;
+    font-weight: bold;
+}

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../../header.jsp" %>
+<link rel="stylesheet" href="../../done.css">
 <div class="wrapper">
 <%@include file="../../sidebar.jsp" %>
 <main class="content">
