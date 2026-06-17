@@ -62,7 +62,7 @@
 		
 		<div style="color: #ff9900; font-size: 0.9em; margin-top: 5px; margin-bottom: 5px;">
                 ${studentError }
-           </div>
+        </div>
 		<!-- 検索ボタン -->
 		<input type="submit" value="検索">
 	</form>
@@ -76,7 +76,7 @@
 </c:if>
 	<p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください
 	</main>
-	</div>
+</div>
 </body>
 <%@include file="../../footer.jsp" %>
 </html>

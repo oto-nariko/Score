@@ -35,7 +35,7 @@ header p {
 /*サイドバーとメインを横並びにする*/
 .wrapper{
 	display: flex;/* これを入れるだけで中身が横並びになります */
-	min-height: calc(100vh-70px);/* 画面の縦幅いっぱいに広げる（70pxはヘッダーの高さ分）*/
+	min-height: calc(100vh - 70px);/* 画面の縦幅いっぱいに広げる（70pxはヘッダーの高さ分）*/
 	flex:1;
 }
 
@@ -65,7 +65,7 @@ main h2, .content h2 {
 footer {
     width: 100%;
     background-color: #e9e9e9;
-    text-align: center; /* 🟢 文字を中央揃え（ど真ん中）にします */
+    text-align: center; /*  文字を中央揃え（ど真ん中）にします */
     padding: 15px 0;    /* 上下にほどよいグレーの余白を作ります */
     box-sizing: border-box;
     margin-top: auto;   /* 念のため、絶対に画面の最下部に張り付くようにする設定 */

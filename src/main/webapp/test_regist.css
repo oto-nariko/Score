@@ -9,7 +9,7 @@ form[action="TestRegist.action"]{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 15px; /* 要素同士の程よい隙間 */
+    gap: 15px; /* 要素同士の隙間 */
 }
 
 form[action="TestRegist.action"] label {
@@ -128,7 +128,7 @@ td input[type="number"] + input[type="hidden"] + .error-range-msg {
     display: none;
 }
 
-/* 0〜100以外の数字（無効な値 = :invalid）が入力されたときだけ表示する */
+/* 0〜100以外の数字が入力されたときだけ表示する */
 td input[type="number"]:invalid + input[type="hidden"] + .error-range-msg {
     display: block;
 }
