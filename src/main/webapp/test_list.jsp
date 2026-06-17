@@ -60,10 +60,6 @@
 		<label>学生番号</label>
 		<input type="text" name="f4" value="${f4}" placeholder="学生番号を入力してください" maxlength="10">
 		
-		<c:if test="${not empty studentError}">
-		<p class="info-msg">科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
-		</c:if>
-		
 		<div style="color: #ff9900; font-size: 0.9em; margin-top: 5px; margin-bottom: 5px;">
                 ${studentError }
            </div>
@@ -78,6 +74,7 @@
 	<c:if test="${resultType == 'student'}">
 	<jsp:include page="test_list_student.jsp" />
 </c:if>
+	<p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください
 	</main>
 	</div>
 </body>
