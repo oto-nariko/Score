@@ -68,7 +68,7 @@ h2 {
     cursor: pointer;
 }
 
-/* 絞込みボタン（設計書通りのダークグレー） */
+/* 絞込みボタン */
 .btn-filter {
     background-color: #4b5563;
     color: #ffffff;
@@ -84,7 +84,7 @@ h2 {
     background-color: #374151;
 }
 
-/* 検索結果・テーブル（表）*/
+/* 検索結果・テーブル*/
 .search-result-count {
     font-size: 14px;
     color: #333333;
@@ -92,7 +92,7 @@ h2 {
     font-weight: bold;
 }
 
-/* 学生一覧テーブル（外枠の黒線を消してシャープに） */
+/* 学生一覧テーブル*/
 .student-table {
     width: 100%;
     border-collapse: collapse;
@@ -110,7 +110,7 @@ h2 {
     padding: 12px 8px;
     font-size: 14px;
     color: #333333;
-    border-bottom: 1px solid #e2e8f0; /* データ行の区切りは薄いグレー */
+    border-bottom: 1px solid #e2e8f0;
 }
 
 /* 中央寄せ用クラス */
@@ -150,7 +150,7 @@ h2 {
     margin-bottom: 20px;   /* 項目同士の縦のスキマ */
 }
 
-/* 項目名（ラベル）の文字スタイル */
+/* 項目名の文字スタイル */
 .form-item label {
     font-size: 14px;
     color: #333333;
@@ -173,15 +173,15 @@ h2 {
 /* 入力欄にフォーカスが当たった時の効果 */
 .form-item input[type="text"]:focus,
 .form-item select:focus {
-    border-color: #3b82f6; /* 青い枠線にして入力中であることをわかりやすく */
+    border-color: #3b82f6; 
 }
 
-/* 設計書通りの薄いグレーのプレースホルダー文字 */
+
 .form-item input::placeholder {
     color: #babcbe;
 }
 
-/* 登録して終了ボタン（設計書通りのチャコールグレー） */
+/* 登録して終了ボタン */
 .btn-submit {
     background-color: #4b5563;
     color: #ffffff;
@@ -236,7 +236,7 @@ h2 {
     margin-bottom: 25px; /* ボタンとの間にスキマを作る */
 }
 
-/* 変更ボタン） */
+/* 変更ボタン */
 .btn-update-submit {
     background-color: #3b82f6; /* 得点管理システムアクセントの青 */
     color: #ffffff;
