@@ -1,8 +1,4 @@
-/* ==========================================
-   成績参照画面：テーブル全体のデザイン
-   ========================================== */
 
-/* 「科目：情報処理基礎知識Ⅰ」のテキスト */
 .subject-display-label {
     font-size: 14px;
     font-weight: bold;
@@ -15,12 +11,12 @@
     width: 100%;
     border-collapse: collapse; /* セルの境界線を重ねる */
     margin-bottom: 30px;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    
 }
 
-/* ヘッダー部分（入学年度、クラスなど） */
+/* ヘッダー部分 */
 .score-data-table th {
-    background-color: #f5f5f7; /* 画像2枚目の落ち着いた薄いグレー */
+    background-color: #f5f5f7;
     color: #444444;
     font-size: 13px;
     font-weight: bold;
