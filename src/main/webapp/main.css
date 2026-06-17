@@ -5,6 +5,7 @@ html,body{
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
 }
 
 header{
@@ -35,8 +36,9 @@ header p {
 /*サイドバーとメインを横並びにする*/
 .wrapper{
 	display: flex;/* これを入れるだけで中身が横並びになります */
-	min-height: calc(100vh - 70px);/* 画面の縦幅いっぱいに広げる（70pxはヘッダーの高さ分）*/
-	flex:1;
+/*	min-height: calc(100vh - 135px); 画面の縦幅いっぱいに広げる（70pxはヘッダーの高さ分）*/
+	width: 100%;
+	flex:1 0 auto;
 }
 
 .sidebar{
@@ -68,8 +70,10 @@ footer {
     text-align: center; /*  文字を中央揃え（ど真ん中）にします */
     padding: 15px 0;    /* 上下にほどよいグレーの余白を作ります */
     box-sizing: border-box;
-    margin-top: auto;   /* 念のため、絶対に画面の最下部に張り付くようにする設定 */
-}
+	margin-top: auto !important;   /* 上の要素を押し上げて一番下に居座る */
+	flex-shrink: 0 !important;     /* 上の要素が伸びてきても、絶対に潰されない（上に乗らせない） */
+	position: relative !important; /* 浮き上がりを完全に防止 */
+	}
 
 footer p {
     margin: 5px 0;      /* コピーライトと学校名の間の隙間をきれいに整えます */
