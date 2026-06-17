@@ -72,7 +72,7 @@
 		<input type="hidden" name="f" value="st">
 		
 		<label>学生番号</label>
-		<input type="text" name="f4" value="${f4}" placeholder="学生番号を入力してください" maxlength="10">
+		<input type="text" name="f4" value="${f4}" placeholder="学生番号を入力してください" maxlength="10" required>
 		
 		<div style="color: #ff9900; font-size: 0.9em; margin-top: 5px; margin-bottom: 5px;">
                 ${studentError }
