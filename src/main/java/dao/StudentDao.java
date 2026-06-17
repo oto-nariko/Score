@@ -98,6 +98,8 @@ public class StudentDao extends Dao {
 		}
 		if (isAttend) {
 			sql += " and is_attend=true";
+		} else {
+			sql += " and is_attend=false";
 		}
 		
 		//学生番号順に並べ替え
@@ -138,6 +140,21 @@ public class StudentDao extends Dao {
 	 */
 	public List<Student> filter(School school, boolean isAttend) throws Exception {
 		return filter(school, 0, null, isAttend);
+	}
+	
+	public List<Student> filterAll(School school) throws Exception {
+	    List<Student> list = new ArrayList<>();
+	    Connection con = getConnection();
+	    String sql = baseSql + " order by no";
+	    PreparedStatement st = con.prepareStatement(sql);
+	    st.setString(1, school.getCd());
+	    ResultSet rs = st.executeQuery();
+	    list = postFilter(rs, school);
+	    return list;
+	}
+	
+	public List<Student> filter(School school, String classNum, boolean isAttend) throws Exception {
+	    return filter(school, 0, classNum, isAttend);
 	}
 	
 	/*

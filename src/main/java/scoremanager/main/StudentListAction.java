@@ -54,11 +54,18 @@ public class StudentListAction extends Action {
 		List<String> classList = cDao.filter(teacher.getSchool());
 		
 		List<Student> students = new ArrayList<>();
-		if (entYear != 0 && classNum != null && !classNum.equals("0")) { //入学年度とクラスが指定されたとき
+		boolean hasEntYear = entYear != 0;
+		boolean hasClassNum = classNum != null && !classNum.isEmpty();
+		
+		if (hasEntYear && hasClassNum) { //入学年度とクラスが指定されたとき
 			students = sDao.filter(teacher.getSchool(), entYear, classNum, isAttend);
-		} else if (entYear != 0) { //入学年度のみ指定されたとき
+		} else if (hasEntYear) { //入学年度のみ指定されたとき
 			students = sDao.filter(teacher.getSchool(), entYear, isAttend);
-		} else {
+		} else if (hasClassNum) { //クラスのみ指定されたとき
+			students = sDao.filter(teacher.getSchool(), classNum, isAttend);
+		} else if (!isAttend) { //何も指定されていないとき
+			students = sDao.filterAll(teacher.getSchool());
+		} else { //在学中チェックのみのとき
 			students = sDao.filter(teacher.getSchool(), isAttend);
 		}
 		
