@@ -23,7 +23,7 @@ header{
 }
 .header-right {
     display: flex;
-    gap: 15px; /* 「〇〇様」と「ログアウト」の間にちょうどいい隙間を作る */
+    gap: 15px;
     align-items: center;
 }
 header h1 {
@@ -31,7 +31,7 @@ header h1 {
 }
 
 header p {
-    margin: 0; /* ユーザー名やログアウトの上下の無駄な隙間をゼロに */
+    margin: 0; /* ユーザー名やログアウトの上下の無駄な隙間をゼロにする */
 }
 /*サイドバーとメインを横並びにする*/
 .wrapper{
@@ -67,10 +67,10 @@ footer {
     width: 100%;
     background-color: #e9e9e9;
     text-align: center; /*  文字を中央揃え */
-    padding: 15px 0;    /* 上下にほどよいグレーの余白 */
+    padding: 15px 0;    /* 上下にグレーの余白 */
     box-sizing: border-box;
-	margin-top: auto !important;   /* 上の要素を押し上げて一番下に居座る */
-	flex-shrink: 0 !important;     /* 上の要素が伸びてきても、絶対に潰されない（上に乗らせない） */
+	margin-top: auto !important;   /* 上の要素を押し上げて一番下にやる */
+	flex-shrink: 0 !important;     /* 上の要素が伸びてきても、上に乗らない */
 	position: relative !important; /* 浮き上がりを完全に防止 */
 	}
 

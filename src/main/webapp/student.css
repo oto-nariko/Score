@@ -236,7 +236,7 @@ h2 {
     margin-bottom: 25px; /* ボタンとの間にスキマを作る */
 }
 
-/* 変更ボタン（設計書通りの鮮やかな青色） */
+/* 変更ボタン） */
 .btn-update-submit {
     background-color: #3b82f6; /* 得点管理システムアクセントの青 */
     color: #ffffff;
@@ -250,5 +250,5 @@ h2 {
 }
 
 .btn-update-submit:hover {
-    background-color: #1d4ed8; /* ホバー時に少し濃い青に */
+    background-color: #1d4ed8; /* ホバー時に青 */
 }

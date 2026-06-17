@@ -1,16 +1,11 @@
 @charset "UTF-8";
 
-/* ==========================================================================
-   科目情報登録画面
-   ========================================================================== */
-
-/* フォーム全体の最大幅を制限し、上部に余白を作る */
 .create-form {
     max-width: 800px;
     margin-top: 20px;
 }
 
-/* 各入力項目（ラベル＋入力欄）を綺麗な縦並びにする */
+/* 各入力項目（ラベル＋入力欄）を縦並びにする */
 .create-form-item {
     display: flex;
     flex-direction: column;
@@ -18,37 +13,36 @@
     margin-bottom: 20px;      /* 項目同士の縦のスキマ */
 }
 
-/* 項目名（ラベル）の文字スタイル */
+/* 項目名の文字スタイル */
 .create-form-item label {
     font-size: 14px;
     color: #333333;
     font-weight: bold;
 }
 
-/* 入力欄（テキストボックス）の見た目調整 */
+/* 入力欄の見た目調整 */
 .create-form-item input[type="text"] {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #cccccc;
-    border-radius: 6px;       /* 設計書通りの少し丸みのある角 */
+    border-radius: 6px;       /* 丸みのある角 */
     font-size: 14px;
     background-color: #ffffff;
-    box-sizing: border-box;    /* 横幅100%からはみ出さないようにガード */
+    box-sizing: border-box;    /* 横幅100%からはみ出さないように*/
     outline: none;
     transition: border-color 0.2s;
 }
 
-/* 入力欄をクリックした（フォーカスが当たった）時の青枠エフェクト */
+/* 入力欄をクリックした時の青枠エフェクト */
 .create-form-item input[type="text"]:focus {
     border-color: #3b82f6;
 }
 
-/* 設計書通りの薄いグレーのプレースホルダー（ヒント文字） */
 .create-form-item input::placeholder {
     color: #cbd5e1;
 }
 
-/* 登録ボタン（設計書通りの鮮やかな青色） */
+/* 登録ボタン*/
 .btn-create-submit {
     background-color: #3b82f6; /* 得点管理システムのアクセントブルー */
     color: #ffffff;
@@ -79,7 +73,7 @@
     text-decoration: underline;
 }
 
-/* 入力欄のすぐ下に出るエラーメッセージ（オレンジ） */
+/* 入力欄のすぐ下に出るエラーメッセージ */
 .create-error-text {
     color: #ff9900;
     font-size: 13px;

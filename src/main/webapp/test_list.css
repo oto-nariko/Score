@@ -63,7 +63,7 @@
     font-size: 13px;
     font-weight: bold;
     text-align: left;
-    padding: 12px 15px; /* 上下左右に適切な余白 */
+    padding: 12px 15px; /* 上下左右に余白 */
     border-bottom: 1px solid #dddddd;
 }
 
@@ -72,7 +72,7 @@
     color: #555555;
     font-size: 13px;
     padding: 14px 15px; /* ギュッとした印象をなくす広めの余白 */
-    border-bottom: 1px solid #eeeeee; /* 行と行の間のうっすらとした線 */
+    border-bottom: 1px solid #eeeeee; /* 行と行の間の線 */
     vertical-align: middle;
 }
 
