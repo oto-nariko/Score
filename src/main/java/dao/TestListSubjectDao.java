@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import bean.School;
 import bean.Subject;
@@ -23,25 +25,28 @@ public class TestListSubjectDao extends Dao {
 			+"and t.school_cd=?";
 	
 	//ResultSetをリストに変換するメソッド
-	public List<TestListSubject> postFilter(
-			ResultSet rSet)throws Exception{
-		//検索結果を入れるリスト
-		List<TestListSubject> list=new ArrayList<>();
+	public List<TestListSubject> postFilter(ResultSet rSet) throws Exception {
+	    List<TestListSubject> list = new ArrayList<>();
+	    Map<String, TestListSubject> map = new LinkedHashMap<>();
 
-		while (rSet.next()){
+	    while (rSet.next()) {
+	        String studentNo = rSet.getString("student_no");
 
-			TestListSubject test=new TestListSubject();
+	        TestListSubject test = map.get(studentNo);
+	        if (test == null) {
+	            test = new TestListSubject();
+	            test.setEntYear(rSet.getInt("ent_year"));
+	            test.setStudentNo(studentNo);
+	            test.setStudentName(rSet.getString("student_name"));
+	            test.setClassNum(rSet.getString("class_num"));
+	            map.put(studentNo, test);
+	        }
 
-			test.setEntYear(rSet.getInt("ent_year"));
-			test.setStudentNo(rSet.getString("student_no"));
-			test.setStudentName(rSet.getString("student_name"));
-			test.setClassNum(rSet.getString("class_num"));
-			test.putPoint(rSet.getInt("no"), rSet.getInt("point"));
+	        test.putPoint(rSet.getInt("no"), rSet.getInt("point"));
+	    }
 
-			list.add(test);
-		}
-
-		return list;
+	    list.addAll(map.values());
+	    return list;
 	}
 
 	//入学年度、クラス、科目、、学校コードで絞り込むメソッド

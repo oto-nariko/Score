@@ -34,7 +34,7 @@
 				<td>${subject.subjectName}</td>
 				<td>${subject.subjectCd}</td>
 				<td>${subject.num}</td>
-				<td>${subject.point}</td>
+				<td>${subject.point == -1 ? '-' : subject.point}</td>
 			</tr>
 		</c:if>
 	</c:forEach>

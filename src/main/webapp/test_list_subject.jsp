@@ -25,14 +25,14 @@
 		<!-- 1回目 -->
 		<td>
 			<c:choose>
-				<c:when test="${empty student.getPoint(1)}">-</c:when>
+				<c:when test="${empty student.getPoint(1) or student.getPoint(1) == '-1'}">-</c:when>
 				<c:otherwise>${student.getPoint(1)}</c:otherwise>
 			</c:choose>
 		</td>
 		<!-- 2回目 -->
 		<td>
 			<c:choose>
-				<c:when test="${empty student.getPoint(2)}">-</c:when>
+				<c:when test="${empty student.getPoint(2) or student.getPoint(2) == '-1'}">-</c:when>
 				<c:otherwise>${student.getPoint(2) }</c:otherwise>
 			</c:choose>
 		</td>
